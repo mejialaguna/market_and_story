@@ -1,11 +1,13 @@
 'use client';
 
-import { Search, ShoppingBag, Menu, User, Heart, BookOpen } from 'lucide-react';
+import { useState } from 'react';
+import type { FC, JSX } from 'react';
+
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 
-import type { FC, JSX } from 'react';
+
+import { Search, ShoppingBag, Menu, User, Heart, BookOpen } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {

@@ -1,6 +1,7 @@
+import type { FC, JSX } from 'react';
+
 import Link from 'next/link';
 
-import type { FC, JSX } from 'react';
 
 export const SiteFooter:FC = (): JSX.Element => {
   return (
