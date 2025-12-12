@@ -1,16 +1,18 @@
 import type { FC, JSX } from 'react';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
-import { SiteFooter } from '@/components/site-footer';
-import { SiteHeader } from '@/components/site-header';
+import { ArrowRight } from 'lucide-react';
 
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 
-export const Home:FC = (): JSX.Element => {
+import { MainLayout } from '../components/mainLayout';
+
+const Home:FC = (): JSX.Element => {
   return (
-    <div className='flex min-h-screen flex-col'>
-      <SiteHeader />
-
+    <MainLayout>
       <main className='flex-1'>
         {/* Hero Section */}
         <section className='container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20'>
@@ -37,7 +39,7 @@ export const Home:FC = (): JSX.Element => {
 
             <div className='relative aspect-[4/3] lg:aspect-square rounded-lg overflow-hidden bg-muted'>
               <Image
-                src='/modern-retail-storefront-with-curated-products-dis.jpg'
+                src='https://res.cloudinary.com/jlml/image/upload/v1765549695/market_and_story/k2lkzqe3s0jnotu2ul6t.webp'
                 alt='Curated retail display'
                 fill
                 className='object-cover'
@@ -53,16 +55,16 @@ export const Home:FC = (): JSX.Element => {
             <h2 className='font-serif text-3xl md:text-4xl font-semibold mb-8 text-balance'>Shop by Category</h2>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
               {[
-                { name: 'Home & Living', image: 'modern minimalist home decor' },
-                { name: 'Fashion', image: 'contemporary fashion apparel' },
-                { name: 'Technology', image: 'sleek consumer electronics' },
-                { name: 'Wellness', image: 'wellness and beauty products' },
+                { name: 'Home & Living', image: 'modern minimalist home decor', type: 'home' },
+                { name: 'Fashion', image: 'contemporary fashion apparel', type: 'fashion' },
+                { name: 'Technology', image: 'sleek consumer electronics', type: 'technology' },
+                { name: 'Wellness', image: 'wellness and beauty products', type: 'wellness' },
               ].map((category) => (
                 <Link key={category.name} href={`/products?category=${category.name.toLowerCase()}`}>
                   <Card className='group overflow-hidden border-border hover:shadow-lg transition-all duration-300'>
                     <div className='relative aspect-square overflow-hidden bg-muted'>
                       <Image
-                        src={`/.jpg?height=400&width=400&query=${category.image}`}
+                        src={`https://res.cloudinary.com/jlml/image/upload/v1765549902/market_and_story/${category.type}.webp`}
                         alt={category.name}
                         fill
                         className='object-cover group-hover:scale-105 transition-transform duration-300'
@@ -92,15 +94,15 @@ export const Home:FC = (): JSX.Element => {
 
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
             {[
-              { name: 'Minimalist Desk Lamp', price: 149, image: 'minimalist modern desk lamp' },
-              { name: 'Ceramic Coffee Set', price: 89, image: 'artisan ceramic coffee set' },
-              { name: 'Leather Tote Bag', price: 219, image: 'premium leather tote bag' },
+              { name: 'Minimalist Desk Lamp', price: 149, image: 'minimalist modern desk lamp', type: 'featuredTechnology' },
+              { name: 'Ceramic Coffee Set', price: 89, image: 'artisan ceramic coffee set', type: 'featuredHome' },
+              { name: 'Leather Tote Bag', price: 219, image: 'premium leather tote bag', type: 'featuredFashion' },
             ].map((product, idx) => (
-              <Link key={idx} href={`/products/${idx + 1}`}>
+              <Link key={product.type} href={`/products/${idx + 1}`}>
                 <Card className='group overflow-hidden border-border hover:shadow-lg transition-all duration-300'>
                   <div className='relative aspect-square overflow-hidden bg-muted'>
                     <Image
-                      src={`/.jpg?height=500&width=500&query=${product.image}`}
+                      src={`https://res.cloudinary.com/jlml/image/upload/v1765549902/market_and_story/${product.type}.webp`}
                       alt={product.name}
                       fill
                       className='object-cover group-hover:scale-105 transition-transform duration-300'
@@ -136,20 +138,22 @@ export const Home:FC = (): JSX.Element => {
                   excerpt: 'Exploring how intentional design shapes our daily experiences and wellbeing.',
                   image: 'serene minimalist interior design',
                   category: 'Lifestyle',
+                  type:'lifestyle'
                 },
                 {
                   title: 'Sustainable Fashion Forward',
                   excerpt: 'Meet the designers reimagining fashion with eco-conscious materials and practices.',
                   image: 'sustainable fashion design studio',
                   category: 'Fashion',
+                  type: 'fashionStyle',
                 },
               ].map((article, idx) => (
-                <Link key={idx} href={`/articles/${idx + 1}`}>
+                <Link key={`${article.title}-${article.category}`} href={`/articles/${idx + 1}`}>
                   <Card className='group overflow-hidden border-border hover:shadow-lg transition-all duration-300 h-full'>
                     <div className='grid md:grid-cols-2 gap-0 h-full'>
                       <div className='relative aspect-video md:aspect-auto overflow-hidden bg-muted'>
                         <Image
-                          src={`/.jpg?height=400&width=400&query=${article.image}`}
+                          src={`https://res.cloudinary.com/jlml/image/upload/v1765549902/market_and_story/${article.type}.webp`}
                           alt={article.title}
                           fill
                           className='object-cover group-hover:scale-105 transition-transform duration-300'
@@ -202,14 +206,14 @@ export const Home:FC = (): JSX.Element => {
                 </div>
               </div>
               <div className='relative aspect-video lg:aspect-auto min-h-[300px] bg-primary-foreground/10'>
-                <Image src='/vertical-video-feed-interface-on-mobile-device.jpg' alt='Live content experience' fill className='object-cover' />
+                <Image src='https://res.cloudinary.com/jlml/image/upload/v1765549801/market_and_story/vibe2bdlgh4rerv56tqe.webp' alt='Live content experience' fill className='object-cover' />
               </div>
             </div>
           </Card>
         </section>
       </main>
-
-      <SiteFooter />
-    </div>
+    </MainLayout>
   );
 };
+
+export default Home;

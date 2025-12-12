@@ -2,7 +2,6 @@ import type { FC, JSX } from 'react';
 
 import Link from 'next/link';
 
-
 export const SiteFooter:FC = (): JSX.Element => {
   return (
     <footer className='border-t border-border bg-background'>

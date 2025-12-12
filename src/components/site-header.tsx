@@ -30,7 +30,7 @@ export const SiteHeader: FC = (): JSX.Element => {
         <div className='flex h-16 items-center justify-between'>
           <div className='flex items-center gap-8'>
             <Link href='/' className='flex items-center space-x-2'>
-              <span className='font-serif text-2xl font-semibold tracking-tight'>
+              <span className='font-serif text-[24px] font-semibold tracking-tight'>
                 market&story
               </span>
             </Link>
@@ -38,25 +38,25 @@ export const SiteHeader: FC = (): JSX.Element => {
             <nav className='hidden md:flex items-center gap-6'>
               <Link
                 href='/products'
-                className='text-sm font-medium text-foreground/80 hover:text-foreground transition-colors'
+                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
               >
                 Shop
               </Link>
               <Link
                 href='/articles'
-                className='text-sm font-medium text-foreground/80 hover:text-foreground transition-colors'
+                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
               >
                 Stories
               </Link>
               <Link
                 href='/live'
-                className='text-sm font-medium text-foreground/80 hover:text-foreground transition-colors'
+                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
               >
                 Live
               </Link>
               <Link
                 href='/locations'
-                className='text-sm font-medium text-foreground/80 hover:text-foreground transition-colors'
+                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
               >
                 Locations
               </Link>
@@ -129,37 +129,37 @@ export const SiteHeader: FC = (): JSX.Element => {
             <div className='flex flex-col gap-4'>
               <Link
                 href='/products'
-                className='text-sm font-medium text-foreground/80 hover:text-foreground transition-colors'
+                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
               >
                 Shop
               </Link>
               <Link
                 href='/articles'
-                className='text-sm font-medium text-foreground/80 hover:text-foreground transition-colors'
+                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
               >
                 Stories
               </Link>
               <Link
                 href='/live'
-                className='text-sm font-medium text-foreground/80 hover:text-foreground transition-colors'
+                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
               >
                 Live
               </Link>
               <Link
                 href='/locations'
-                className='text-sm font-medium text-foreground/80 hover:text-foreground transition-colors'
+                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
               >
                 Locations
               </Link>
               <Link
                 href='/search'
-                className='text-sm font-medium text-foreground/80 hover:text-foreground transition-colors'
+                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
               >
                 Search
               </Link>
               <Link
                 href='/account'
-                className='text-sm font-medium text-foreground/80 hover:text-foreground transition-colors'
+                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
               >
                 My Account
               </Link>
