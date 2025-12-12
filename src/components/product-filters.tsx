@@ -74,11 +74,11 @@ export const ProductFilters: FC<ProductFiltersProps> = ({
         <h3 className='font-semibold mb-4'>Categories</h3>
         <div className='space-y-3'>
           {[
-            Home & Living,
-            Fashion,
-            Technology,
-            Wellness,
-            Accessories,
+            'Home & Living',
+            'Fashion',
+            'Technology',
+            'Wellness',
+            'Accessories',
           ].map((category) => (
             <div key={category} className='flex items-center space-x-2'>
               <Checkbox
