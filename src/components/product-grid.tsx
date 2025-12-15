@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 import type { FC, JSX } from 'react';
 
+import Link from 'next/link';
+
 import { seedData } from '@/seed/seed';
 
 import { Button } from './ui/button';
@@ -28,6 +30,13 @@ export const ProductGrid: FC<ProductGridProps> = ({
   const filteredProducts = useMemo(() => {
     let filtered = seedData;
 
+    // Filter by features
+    if (selectedFeatures.length > 0) {
+      filtered = filtered.filter((product) =>
+        selectedFeatures.some((feature) => product?.features?.includes(feature))
+      );
+    }
+
     // Filter by categories
     if (selectedCategories.length > 0) {
       filtered = filtered.filter((product) =>
@@ -41,15 +50,9 @@ export const ProductGrid: FC<ProductGridProps> = ({
         product.price >= priceRange[0] && product.price <= priceRange[1]
     );
 
-    // Filter by features
-    if (selectedFeatures.length > 0) {
-      filtered = filtered.filter((product) =>
-        selectedFeatures.some((feature) => product?.features?.includes(feature))
-      );
-    }
-
     // Sort products
     const sorted = [...filtered];
+
     switch (sortBy) {
       case 'price-low':
         sorted.sort((a, b) => a.price - b.price);
@@ -61,8 +64,11 @@ export const ProductGrid: FC<ProductGridProps> = ({
         sorted.sort((a, b) => b.id - a.id);
         break;
       case 'featured':
-      default:
-        // Keep default order
+        sorted.sort((a, b) => {
+          const aFeatured = a.features?.length ? 1 : 0;
+          const bFeatured = b.features?.length ? 1 : 0;
+          return bFeatured - aFeatured;
+        });
         break;
     }
 
@@ -110,7 +116,9 @@ export const ProductGrid: FC<ProductGridProps> = ({
       ) : (
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
           {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <Link key={product.id} href={`/product/${product.slug}`}>
+              <ProductCard product={product} />
+            </Link>
           ))}
         </div>
       )}

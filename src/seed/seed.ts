@@ -4,6 +4,12 @@ export interface ProductDimensions {
   depth: number;
 }
 
+export type ProductCategory =
+  | 'Home & Living'
+  | 'Fashion'
+  | 'Technology'
+  | 'Wellness';
+
 export interface ProductMeta {
   createdAt: string;
   updatedAt: string;
@@ -14,8 +20,9 @@ export interface ProductMeta {
 export interface Product {
   id: number;
   title: string;
+  slug: string;
   description: string;
-  category: string;
+  category: ProductCategory;
   price: number;
   discountPercentage: number;
   rating: number;
@@ -42,6 +49,7 @@ export const seedData: Product[] = [
   {
     id: 1,
     title: 'Modern Ceramic Vase Set',
+    slug: 'modern-ceramic-vase-set',
     description:
       'Elegant set of three handcrafted ceramic vases in neutral tones. Perfect for contemporary home decor, these vases feature a matte finish and minimalist design.',
     category: 'Home & Living',
@@ -82,6 +90,7 @@ export const seedData: Product[] = [
   {
     id: 2,
     title: 'Luxury Cotton Bedding Set',
+    slug: 'luxury-cotton-bedding-set',
     description:
       "Premium 100% Egyptian cotton bedding set including duvet cover, fitted sheet, and pillowcases. Ultra-soft and breathable for the perfect night's sleep.",
     category: 'Home & Living',
@@ -120,6 +129,7 @@ export const seedData: Product[] = [
   {
     id: 3,
     title: 'Scented Soy Candle Collection',
+    slug: 'scented-soy-candle-collection',
     description:
       'Set of 6 handpoured soy candles with essential oils. Includes lavender, vanilla, eucalyptus, citrus, sandalwood, and ocean breeze scents.',
     category: 'Home & Living',
@@ -160,6 +170,7 @@ export const seedData: Product[] = [
   {
     id: 4,
     title: 'Bamboo Kitchen Utensil Set',
+    slug: 'bamboo-kitchen-utensil-set',
     description:
       'Eco-friendly 12-piece bamboo kitchen utensil set with holder. Includes spatulas, spoons, tongs, and more. Heat-resistant and durable.',
     category: 'Home & Living',
@@ -200,6 +211,7 @@ export const seedData: Product[] = [
   {
     id: 5,
     title: 'Geometric Wall Mirror',
+    slug: 'geometric-wall-mirror',
     description:
       'Stylish hexagonal wall mirror with gold metal frame. Adds depth and light to any room. Easy to hang with included hardware.',
     category: 'Home & Living',
@@ -238,6 +250,7 @@ export const seedData: Product[] = [
   {
     id: 6,
     title: 'Memory Foam Bath Mat',
+    slug: 'memory-foam-bath-mat',
     description:
       'Ultra-soft memory foam bath mat with non-slip backing. Quick-drying microfiber surface in elegant grey color. Machine washable.',
     category: 'Home & Living',
@@ -276,6 +289,7 @@ export const seedData: Product[] = [
   {
     id: 7,
     title: 'Indoor Plant Stand Set',
+    slug: 'indoor-plant-stand-set',
     description:
       'Modern metal plant stand set of 3 in matte black. Different heights for creating visual interest. Suitable for small to medium pots.',
     category: 'Home & Living',
@@ -314,6 +328,7 @@ export const seedData: Product[] = [
   {
     id: 8,
     title: 'Smart LED Table Lamp',
+    slug: 'smart-led-table-lamp',
     description:
       'Touch-controlled LED table lamp with 3 brightness levels and adjustable color temperature. USB charging port built-in. Modern minimalist design.',
     category: 'Home & Living',
@@ -354,6 +369,7 @@ export const seedData: Product[] = [
   {
     id: 9,
     title: 'Velvet Throw Pillows Set',
+    slug: 'velvet-throw-pillows-set',
     description:
       'Luxurious velvet throw pillow covers set of 4 in emerald green. Soft texture with hidden zipper. Inserts not included. 18x18 inches.',
     category: 'Home & Living',
@@ -392,6 +408,7 @@ export const seedData: Product[] = [
   {
     id: 10,
     title: 'Stainless Steel Trash Can',
+    slug: 'stainless-steel-trash-can',
     description:
       'Sleek 13-gallon stainless steel trash can with soft-close lid and removable inner bucket. Fingerprint-proof finish. Perfect for kitchen or office.',
     category: 'Home & Living',
@@ -430,6 +447,7 @@ export const seedData: Product[] = [
   {
     id: 11,
     title: 'Wooden Floating Shelves',
+    slug: 'wooden-floating-shelves',
     description:
       'Set of 3 rustic wooden floating shelves in walnut finish. Easy wall mounting with hidden brackets. Perfect for displaying books and decor.',
     category: 'Home & Living',
@@ -468,6 +486,7 @@ export const seedData: Product[] = [
   {
     id: 12,
     title: 'Turkish Cotton Towel Set',
+    slug: 'turkish-cotton-towel-set',
     description:
       'Premium 6-piece Turkish cotton towel set in pearl white. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Ultra-absorbent and quick-drying.',
     category: 'Home & Living',
@@ -508,6 +527,7 @@ export const seedData: Product[] = [
   {
     id: 13,
     title: 'Acrylic Organizer Set',
+    slug: 'acrylic-organizer-set',
     description:
       'Clear acrylic desk organizer set with 5 compartments. Ideal for office supplies, makeup, or craft materials. Stackable design.',
     category: 'Home & Living',
@@ -546,6 +566,7 @@ export const seedData: Product[] = [
   {
     id: 14,
     title: 'Macrame Wall Hanging',
+    slug: 'macrame-wall-hanging',
     description:
       'Handmade bohemian macrame wall hanging in natural cotton. Large statement piece measuring 36 inches long. Includes wooden dowel.',
     category: 'Home & Living',
@@ -586,6 +607,7 @@ export const seedData: Product[] = [
   {
     id: 15,
     title: 'Essential Oil Diffuser',
+    slug: 'essential-oil-diffuser',
     description:
       'Ultrasonic aromatherapy essential oil diffuser with LED lights. 300ml capacity, runs up to 10 hours. Includes auto shut-off feature.',
     category: 'Home & Living',
@@ -624,6 +646,7 @@ export const seedData: Product[] = [
   {
     id: 16,
     title: 'Woven Storage Baskets',
+    slug: 'woven-storage-baskets',
     description:
       'Set of 3 handwoven seagrass storage baskets with handles. Natural finish perfect for organizing toys, blankets, or laundry. Collapsible design.',
     category: 'Home & Living',
@@ -662,6 +685,7 @@ export const seedData: Product[] = [
   {
     id: 17,
     title: 'Non-Stick Cookware Set',
+    slug: 'non-stick-cookware-set',
     description:
       'Professional 10-piece non-stick cookware set with glass lids. Includes frying pans, saucepans, and stockpot. Dishwasher safe and PFOA-free.',
     category: 'Home & Living',
@@ -702,6 +726,7 @@ export const seedData: Product[] = [
   {
     id: 18,
     title: 'Area Rug Persian Style',
+    slug: 'area-rug-persian-style',
     description:
       'Beautiful 8x10 ft Persian-style area rug with intricate patterns. Made from durable polypropylene fiber. Easy to clean and stain-resistant.',
     category: 'Home & Living',
@@ -742,6 +767,7 @@ export const seedData: Product[] = [
   {
     id: 19,
     title: 'Coffee Table Book Collection',
+    slug: 'coffee-table-book-collection',
     description:
       'Curated set of 5 large-format photography and art coffee table books. Perfect for styling and conversation starters.',
     category: 'Home & Living',
@@ -780,6 +806,7 @@ export const seedData: Product[] = [
   {
     id: 20,
     title: 'Digital Kitchen Scale',
+    slug: 'digital-kitchen-scale',
     description:
       'Precise digital kitchen scale with tempered glass platform. Measures up to 11 lbs in increments of 0.1 oz. Includes tare function and unit conversion.',
     category: 'Home & Living',
@@ -818,6 +845,7 @@ export const seedData: Product[] = [
   {
     id: 21,
     title: 'Wine Rack Countertop',
+    slug: 'wine-rack-countertop',
     description:
       'Modern freestanding wine rack holds 6 bottles and 4 glasses. Sturdy metal construction with bronze finish. Compact design for countertop or bar.',
     category: 'Home & Living',
@@ -856,6 +884,7 @@ export const seedData: Product[] = [
   {
     id: 22,
     title: 'Decorative Tray Set',
+    slug: 'decorative-tray-set',
     description:
       'Set of 2 decorative serving trays with handles. Made from natural wood with white wash finish. Perfect for ottoman, coffee table, or breakfast in bed.',
     category: 'Home & Living',
@@ -894,6 +923,7 @@ export const seedData: Product[] = [
   {
     id: 23,
     title: 'Ceramic Dinnerware Set',
+    slug: 'ceramic-dinnerware-set',
     description:
       '16-piece ceramic dinnerware set for 4 in modern matte finish. Includes dinner plates, salad plates, bowls, and mugs. Microwave and dishwasher safe.',
     category: 'Home & Living',
@@ -932,6 +962,7 @@ export const seedData: Product[] = [
   {
     id: 24,
     title: 'Wall Clock Modern',
+    slug: 'wall-clock-modern',
     description:
       'Silent non-ticking wall clock with large numbers. 12-inch diameter with black metal frame and white face. Battery operated.',
     category: 'Home & Living',
@@ -970,6 +1001,7 @@ export const seedData: Product[] = [
   {
     id: 25,
     title: 'Shower Curtain Set',
+    slug: 'shower-curtain-set',
     description:
       'Waterproof fabric shower curtain with geometric pattern. Includes 12 rust-resistant hooks. Machine washable. 72x72 inches.',
     category: 'Home & Living',
@@ -1008,6 +1040,7 @@ export const seedData: Product[] = [
   {
     id: 26,
     title: 'Weighted Blanket',
+    slug: 'weighted-blanket',
     description:
       'Premium weighted blanket 15 lbs for better sleep. Soft microfiber cover with glass bead filling. Evenly distributed weight. Queen size.',
     category: 'Home & Living',
@@ -1048,6 +1081,7 @@ export const seedData: Product[] = [
   {
     id: 27,
     title: 'Drawer Organizers Set',
+    slug: 'drawer-organizers-set',
     description:
       'Expandable drawer dividers set of 6. Adjustable size fits most drawers. Perfect for organizing utensils, office supplies, or cosmetics.',
     category: 'Home & Living',
@@ -1086,6 +1120,7 @@ export const seedData: Product[] = [
   {
     id: 28,
     title: 'Glass Food Storage Containers',
+    slug: 'glass-food-storage-containers',
     description:
       'Set of 10 glass meal prep containers with snap-locking lids. BPA-free, microwave, oven, and dishwasher safe. Airtight and leak-proof.',
     category: 'Home & Living',
@@ -1124,6 +1159,7 @@ export const seedData: Product[] = [
   {
     id: 29,
     title: 'Electric Kettle Stainless Steel',
+    slug: 'electric-kettle-stainless-steel',
     description:
       '1.7L cordless electric kettle with rapid boil technology. Auto shut-off and boil-dry protection. Brushed stainless steel finish.',
     category: 'Home & Living',
@@ -1162,6 +1198,7 @@ export const seedData: Product[] = [
   {
     id: 30,
     title: 'Faux Fur Throw Blanket',
+    slug: 'faux-fur-throw-blanket',
     description:
       'Luxurious faux fur throw blanket in charcoal grey. Ultra-soft and warm, perfect for couch or bed. 50x60 inches. Machine washable.',
     category: 'Home & Living',
@@ -1200,6 +1237,7 @@ export const seedData: Product[] = [
   {
     id: 31,
     title: 'Desk Lamp with USB Port',
+    slug: 'desk-lamp-with-usb-port',
     description:
       'Modern LED desk lamp with built-in USB charging port. Touch control, 3 brightness levels, and adjustable arm. Energy efficient.',
     category: 'Home & Living',
@@ -1238,6 +1276,7 @@ export const seedData: Product[] = [
   {
     id: 32,
     title: 'Picture Frame Set',
+    slug: 'picture-frame-set',
     description:
       'Gallery wall frame set of 7 in black. Includes various sizes from 4x6 to 8x10. Mounting hardware and level included.',
     category: 'Home & Living',
@@ -1276,6 +1315,7 @@ export const seedData: Product[] = [
   {
     id: 33,
     title: 'Door Mat Indoor Outdoor',
+    slug: 'door-mat-indoor-outdoor',
     description:
       'Durable rubber-backed door mat with water-absorbent surface. 24x36 inches. Easy to clean and weather-resistant. Non-slip backing.',
     category: 'Home & Living',
@@ -1314,6 +1354,7 @@ export const seedData: Product[] = [
   {
     id: 34,
     title: 'Knife Block Set',
+    slug: 'knife-block-set',
     description:
       "Professional 15-piece knife block set with high-carbon stainless steel blades. Includes chef's knife, bread knife, utility knives, and kitchen shears.",
     category: 'Home & Living',
@@ -1354,6 +1395,7 @@ export const seedData: Product[] = [
   {
     id: 35,
     title: 'Curtain Panels Blackout',
+    slug: 'curtain-panels-blackout',
     description:
       'Thermal insulated blackout curtain panels, set of 2. 52x84 inches per panel. Noise reducing and energy efficient. Grommet top in navy blue.',
     category: 'Home & Living',
@@ -1392,6 +1434,7 @@ export const seedData: Product[] = [
   {
     id: 36,
     title: 'Laundry Hamper with Lid',
+    slug: 'laundry-hamper-with-lid',
     description:
       'Large capacity woven laundry hamper with removable liner and lid. Natural water hyacinth construction. Handles for easy transport.',
     category: 'Home & Living',
@@ -1430,6 +1473,7 @@ export const seedData: Product[] = [
   {
     id: 37,
     title: 'Artificial Succulent Plants Set',
+    slug: 'artificial-succulent-plants-set',
     description:
       'Set of 6 realistic artificial succulent plants in grey pots. No maintenance required. Perfect for desk, shelf, or windowsill decoration.',
     category: 'Home & Living',
@@ -1468,6 +1512,7 @@ export const seedData: Product[] = [
   {
     id: 38,
     title: 'Soap Dispenser Set',
+    slug: 'soap-dispenser-set',
     description:
       'Modern bathroom soap dispenser and toothbrush holder set. Marble pattern ceramic with matte black pumps. Includes lotion dispenser.',
     category: 'Home & Living',
@@ -1506,6 +1551,7 @@ export const seedData: Product[] = [
   {
     id: 39,
     title: 'Magazine Rack Stand',
+    slug: 'magazine-rack-stand',
     description:
       'Contemporary metal magazine rack with 3 tiers. Holds magazines, books, and newspapers. Black powder-coated finish. Freestanding design.',
     category: 'Home & Living',
@@ -1544,6 +1590,7 @@ export const seedData: Product[] = [
   {
     id: 40,
     title: 'Coasters Set Cork',
+    slug: 'coasters-set-cork',
     description:
       'Set of 8 natural cork coasters with holder. Heat resistant and moisture absorbent. Protects furniture from water rings and scratches.',
     category: 'Home & Living',
@@ -1582,6 +1629,7 @@ export const seedData: Product[] = [
   {
     id: 41,
     title: 'Classic White T-Shirt',
+    slug: 'classic-white-t-shirt',
     description:
       'Premium cotton crew neck t-shirt in classic white. Soft, breathable fabric with reinforced seams. Perfect for everyday wear or layering.',
     category: 'Fashion',
@@ -1616,12 +1664,13 @@ export const seedData: Product[] = [
     ],
     thumbnail:
       'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200',
-    badge: null,
-    features: [],
+    badge: 'Handmade',
+    features: ['Handmade'],
   },
   {
     id: 42,
     title: 'Slim Fit Jeans',
+    slug: 'slim-fit-jeans',
     description:
       'Modern slim fit denim jeans in dark wash. Stretch denim for comfort and mobility. Classic 5-pocket styling with button fly.',
     category: 'Fashion',
@@ -1656,10 +1705,13 @@ export const seedData: Product[] = [
     ],
     thumbnail:
       'https://images.unsplash.com/photo-1542272604-787c3835535d?w=200',
+    badge: 'Limited',
+    features: ['Limited Edition'],
   },
   {
     id: 43,
     title: 'Floral Summer Dress',
+    slug: 'floral-summer-dress',
     description:
       'Lightweight floral print sundress with adjustable straps. Flowy A-line silhouette perfect for summer. Available in multiple floral patterns.',
     category: 'Fashion',
@@ -1698,6 +1750,7 @@ export const seedData: Product[] = [
   {
     id: 44,
     title: 'Leather Jacket',
+    slug: 'leather-jacket',
     description:
       'Genuine leather moto jacket with asymmetric zipper. Multiple pockets and zippered cuffs. Soft, supple leather that ages beautifully.',
     category: 'Fashion',
@@ -1738,6 +1791,7 @@ export const seedData: Product[] = [
   {
     id: 45,
     title: 'Cashmere Sweater',
+    slug: 'cashmere-sweater',
     description:
       'Luxurious 100% cashmere crew neck sweater. Ultra-soft and warm. Available in neutral tones. Hand wash or dry clean only.',
     category: 'Fashion',
@@ -1776,6 +1830,7 @@ export const seedData: Product[] = [
   {
     id: 46,
     title: 'Running Shoes',
+    slug: 'running-shoes',
     description:
       'Lightweight athletic running shoes with cushioned sole. Breathable mesh upper and responsive foam midsole. Available in multiple colors.',
     category: 'Fashion',
@@ -1814,6 +1869,7 @@ export const seedData: Product[] = [
   {
     id: 47,
     title: 'Blazer Tailored Fit',
+    slug: 'blazer-tailored-fit',
     description:
       'Professional tailored blazer in charcoal grey. Notch lapel with two-button closure. Fully lined with interior pockets. Perfect for office or formal events.',
     category: 'Fashion',
@@ -1852,6 +1908,7 @@ export const seedData: Product[] = [
   {
     id: 48,
     title: 'Yoga Leggings',
+    slug: 'yoga-leggings',
     description:
       'High-waisted yoga leggings with four-way stretch. Moisture-wicking fabric with hidden pocket. Squat-proof and perfect for workouts or casual wear.',
     category: 'Fashion',
@@ -1890,6 +1947,7 @@ export const seedData: Product[] = [
   {
     id: 49,
     title: 'Wool Coat Winter',
+    slug: 'wool-coat-winter',
     description:
       'Classic wool blend winter coat with belt. Double-breasted design with peaked lapels. Warm lining and deep pockets. Timeless style.',
     category: 'Fashion',
@@ -1928,6 +1986,7 @@ export const seedData: Product[] = [
   {
     id: 51,
     title: 'Chino Pants',
+    slug: 'chino-pants',
     description:
       'Classic chino pants in khaki. Slim straight leg with flat front. Versatile style for casual or business casual wear. Cotton twill fabric.',
     category: 'Fashion',
@@ -1966,6 +2025,7 @@ export const seedData: Product[] = [
   {
     id: 52,
     title: 'Denim Jacket',
+    slug: 'denim-jacket',
     description:
       'Classic blue denim trucker jacket. Button front with chest pockets. Slightly cropped fit. Perfect layering piece for any season.',
     category: 'Fashion',
@@ -2004,6 +2064,7 @@ export const seedData: Product[] = [
   {
     id: 53,
     title: 'Sneakers Canvas',
+    slug: 'sneakers-canvas',
     description:
       'Classic low-top canvas sneakers in white. Rubber sole with cushioned insole. Lace-up closure. Comfortable for all-day wear.',
     category: 'Fashion',
@@ -2042,6 +2103,7 @@ export const seedData: Product[] = [
   {
     id: 54,
     title: 'Maxi Skirt',
+    slug: 'maxi-skirt',
     description:
       'Flowy maxi skirt with elastic waistband. Tiered design in soft jersey knit. Perfect for summer outings. Available in solid colors and prints.',
     category: 'Fashion',
@@ -2080,6 +2142,7 @@ export const seedData: Product[] = [
   {
     id: 55,
     title: 'Hoodie Pullover',
+    slug: 'hoodie-pullover',
     description:
       'Cozy fleece pullover hoodie with kangaroo pocket. Drawstring hood and ribbed cuffs. Perfect for lounging or casual outings.',
     category: 'Fashion',
@@ -2118,6 +2181,7 @@ export const seedData: Product[] = [
   {
     id: 56,
     title: 'Ankle Boots',
+    slug: 'ankle-boots',
     description:
       'Stylish leather ankle boots with block heel. Side zipper for easy on and off. Pointed toe design. Perfect for transitional weather.',
     category: 'Fashion',
@@ -2156,6 +2220,7 @@ export const seedData: Product[] = [
   {
     id: 57,
     title: 'Polo Shirt',
+    slug: 'polo-shirt',
     description:
       'Classic pique polo shirt with ribbed collar and cuffs. Three-button placket. Available in multiple colors. Perfect for golf or casual wear.',
     category: 'Fashion',
@@ -2194,6 +2259,7 @@ export const seedData: Product[] = [
   {
     id: 58,
     title: 'Wide Leg Trousers',
+    slug: 'wide-leg-trousers',
     description:
       'High-waisted wide leg trousers in tailored crepe. Pleated front with side pockets. Elegant and comfortable. Perfect for office or evening wear.',
     category: 'Fashion',
@@ -2232,6 +2298,7 @@ export const seedData: Product[] = [
   {
     id: 59,
     title: 'Cardigan Knit',
+    slug: 'cardigan-knit',
     description:
       'Soft knit cardigan with button front. Relaxed fit with ribbed trim. Perfect layering piece. Available in neutral and seasonal colors.',
     category: 'Fashion',
@@ -2270,6 +2337,7 @@ export const seedData: Product[] = [
   {
     id: 60,
     title: 'Loafers Leather',
+    slug: 'loafers-leather',
     description:
       'Classic leather penny loafers. Slip-on style with cushioned insole. Timeless design suitable for business casual or smart casual outfits.',
     category: 'Fashion',
@@ -2308,6 +2376,7 @@ export const seedData: Product[] = [
   {
     id: 61,
     title: 'Tank Top Athletic',
+    slug: 'tank-top-athletic',
     description:
       'Moisture-wicking athletic tank top. Racerback design for freedom of movement. Breathable mesh panels. Perfect for gym or yoga.',
     category: 'Fashion',
@@ -2346,6 +2415,7 @@ export const seedData: Product[] = [
   {
     id: 62,
     title: 'Puffer Jacket',
+    slug: 'puffer-jacket',
     description:
       'Lightweight quilted puffer jacket with hood. Water-resistant outer shell. Packable design. Available in multiple colors for men and women.',
     category: 'Fashion',
@@ -2384,6 +2454,7 @@ export const seedData: Product[] = [
   {
     id: 63,
     title: 'Midi Wrap Dress',
+    slug: 'midi-wrap-dress',
     description:
       'Elegant midi wrap dress with tie waist. V-neck and three-quarter sleeves. Flattering silhouette in soft jersey. Perfect for office or occasions.',
     category: 'Fashion',
@@ -2418,10 +2489,13 @@ export const seedData: Product[] = [
     ],
     thumbnail:
       'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=200',
+    badge: 'Limited',
+    features: ['Limited Edition'],
   },
   {
     id: 64,
     title: 'Shorts Athletic',
+    slug: 'shorts-athletic',
     description:
       'Lightweight athletic shorts with elastic waistband and drawstring. Built-in moisture-wicking liner. Side pockets. Ideal for running or training.',
     category: 'Fashion',
@@ -2460,6 +2534,7 @@ export const seedData: Product[] = [
   {
     id: 65,
     title: 'Turtleneck Sweater',
+    slug: 'turtleneck-sweater',
     description:
       'Cozy turtleneck sweater in soft merino wool blend. Ribbed collar and cuffs. Classic fit. Perfect for layering in cold weather.',
     category: 'Fashion',
@@ -2498,6 +2573,7 @@ export const seedData: Product[] = [
   {
     id: 66,
     title: 'Sandals Strappy',
+    slug: 'sandals-strappy',
     description:
       'Elegant strappy sandals with ankle strap. Mid-heel design. Cushioned footbed for comfort. Perfect for summer events or casual wear.',
     category: 'Fashion',
@@ -2536,6 +2612,7 @@ export const seedData: Product[] = [
   {
     id: 67,
     title: 'Bomber Jacket',
+    slug: 'bomber-jacket',
     description:
       'Classic bomber jacket with ribbed collar, cuffs, and hem. Zip front with side pockets. Lightweight and versatile. Available in navy and olive.',
     category: 'Fashion',
@@ -2574,6 +2651,7 @@ export const seedData: Product[] = [
   {
     id: 68,
     title: 'Crop Top',
+    slug: 'crop-top',
     description:
       'Fitted crop top in ribbed knit. Scoop neckline with short sleeves. Comfortable stretch fabric. Perfect for high-waisted bottoms.',
     category: 'Fashion',
@@ -2608,10 +2686,13 @@ export const seedData: Product[] = [
     ],
     thumbnail:
       'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=200',
+    badge: 'Limited',
+    features: ['Limited Edition'],
   },
   {
     id: 69,
     title: 'Sweatpants Joggers',
+    slug: 'sweatpants-joggers',
     description:
       'Comfortable jogger-style sweatpants with elastic waistband and cuffs. Side pockets and back pocket. Soft fleece interior.',
     category: 'Fashion',
@@ -2650,6 +2731,7 @@ export const seedData: Product[] = [
   {
     id: 70,
     title: 'Evening Gown',
+    slug: 'evening-gown',
     description:
       'Elegant floor-length evening gown with sequin embellishments. Fitted bodice with flowing skirt. Side slit detail. Perfect for formal events.',
     category: 'Fashion',
@@ -2688,6 +2770,7 @@ export const seedData: Product[] = [
   {
     id: 71,
     title: 'Button-Down Shirt',
+    slug: 'button-down-shirt',
     description:
       'Classic button-down Oxford shirt. Wrinkle-resistant fabric with collar stays. Available in white, blue, and pink. Perfect for business attire.',
     category: 'Fashion',
@@ -2726,6 +2809,7 @@ export const seedData: Product[] = [
   {
     id: 72,
     title: 'Trench Coat',
+    slug: 'trench-coat',
     description:
       'Classic double-breasted trench coat with belt. Water-resistant fabric with button-out lining. Timeless style for spring and fall.',
     category: 'Fashion',
@@ -2764,6 +2848,7 @@ export const seedData: Product[] = [
   {
     id: 73,
     title: 'Sports Bra',
+    slug: 'sports-bra',
     description:
       'High-support sports bra with adjustable straps. Removable padding and moisture-wicking fabric. Perfect for high-intensity workouts.',
     category: 'Fashion',
@@ -2802,6 +2887,7 @@ export const seedData: Product[] = [
   {
     id: 74,
     title: 'Cargo Pants',
+    slug: 'cargo-pants',
     description:
       'Utility-inspired cargo pants with multiple pockets. Relaxed fit with adjustable drawstring waist. Durable cotton canvas material.',
     category: 'Fashion',
@@ -2840,6 +2926,7 @@ export const seedData: Product[] = [
   {
     id: 75,
     title: 'Slip Dress',
+    slug: 'slip-dress',
     description:
       'Silky slip dress with adjustable spaghetti straps. Bias-cut for beautiful drape. Midi length. Perfect for layering or wearing alone.',
     category: 'Fashion',
@@ -2878,6 +2965,7 @@ export const seedData: Product[] = [
   {
     id: 76,
     title: 'Chelsea Boots',
+    slug: 'chelsea-boots',
     description:
       'Classic Chelsea boots with elastic side panels. Genuine leather construction with rubber sole. Versatile style suitable for any outfit.',
     category: 'Fashion',
@@ -2916,6 +3004,7 @@ export const seedData: Product[] = [
   {
     id: 77,
     title: 'Flannel Shirt',
+    slug: 'flannel-shirt',
     description:
       'Soft brushed flannel shirt in plaid pattern. Button-front with chest pockets. Perfect for layering in cool weather. Available in multiple colors.',
     category: 'Fashion',
@@ -2954,6 +3043,7 @@ export const seedData: Product[] = [
   {
     id: 78,
     title: 'Pencil Skirt',
+    slug: 'pencil-skirt',
     description:
       'Professional pencil skirt with back slit. Stretchy fabric for comfort. Hits just below knee. Available in black, navy, and grey.',
     category: 'Fashion',
@@ -2992,6 +3082,7 @@ export const seedData: Product[] = [
   {
     id: 79,
     title: 'Rain Jacket',
+    slug: 'rain-jacket',
     description:
       'Waterproof rain jacket with hood and zip pockets. Lightweight packable design. Adjustable cuffs and hem. Perfect for outdoor activities.',
     category: 'Fashion',
@@ -3030,6 +3121,7 @@ export const seedData: Product[] = [
   {
     id: 80,
     title: 'V-Neck T-Shirt Pack',
+    slug: 'v-neck-t-shirt-pack',
     description:
       'Pack of 3 essential v-neck t-shirts. Soft cotton blend. Available in neutral colors. Perfect basics for any wardrobe.',
     category: 'Fashion',
@@ -3068,6 +3160,7 @@ export const seedData: Product[] = [
   {
     id: 81,
     title: 'Wireless Earbuds Pro',
+    slug: 'wireless-earbuds-pro',
     description:
       'Premium wireless earbuds with active noise cancellation. 8-hour battery life per charge, 32 hours with case. Touch controls and IPX5 water resistance.',
     category: 'Technology',
@@ -3106,6 +3199,7 @@ export const seedData: Product[] = [
   {
     id: 82,
     title: 'Smart Watch Fitness Tracker',
+    slug: 'smart-watch-fitness-tracker',
     description:
       'Feature-rich smartwatch with heart rate monitor, sleep tracking, and GPS. 7-day battery life. Compatible with iOS and Android. Water-resistant to 50m.',
     category: 'Technology',
@@ -3144,6 +3238,7 @@ export const seedData: Product[] = [
   {
     id: 83,
     title: 'Portable Bluetooth Speaker',
+    slug: 'portable-bluetooth-speaker',
     description:
       'Waterproof portable speaker with 360-degree sound. 20-hour battery life. USB-C charging and built-in microphone for hands-free calls.',
     category: 'Technology',
@@ -3182,6 +3277,7 @@ export const seedData: Product[] = [
   {
     id: 84,
     title: 'Laptop Stand Aluminum',
+    slug: 'laptop-stand-aluminum',
     description:
       'Ergonomic adjustable laptop stand made from premium aluminum. Supports laptops up to 17 inches. Improves posture and airflow for better cooling.',
     category: 'Technology',
@@ -3216,10 +3312,13 @@ export const seedData: Product[] = [
     ],
     thumbnail:
       'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=200',
+    badge: 'Best Seller',
+    features: ['New Arrival'],
   },
   {
     id: 85,
     title: 'Mechanical Gaming Keyboard',
+    slug: 'mechanical-gaming-keyboard',
     description:
       'RGB backlit mechanical keyboard with customizable keys. Cherry MX switches for responsive typing. Programmable macros and USB passthrough.',
     category: 'Technology',
@@ -3258,6 +3357,7 @@ export const seedData: Product[] = [
   {
     id: 86,
     title: 'Wireless Gaming Mouse',
+    slug: 'wireless-gaming-mouse',
     description:
       'High-precision wireless gaming mouse with 16000 DPI sensor. 70-hour battery life. Programmable buttons and customizable RGB lighting.',
     category: 'Technology',
@@ -3296,6 +3396,7 @@ export const seedData: Product[] = [
   {
     id: 87,
     title: 'USB-C Hub Multiport',
+    slug: 'usb-c-hub-multiport',
     description:
       '7-in-1 USB-C hub with HDMI, USB 3.0 ports, SD card reader, and 100W power delivery. Compact aluminum design. Compatible with MacBook and PC.',
     category: 'Technology',
@@ -3334,6 +3435,7 @@ export const seedData: Product[] = [
   {
     id: 88,
     title: 'Webcam 4K HD',
+    slug: 'webcam-4k-hd',
     description:
       'Professional 4K webcam with autofocus and light correction. Built-in dual microphones with noise reduction. Perfect for streaming and video calls.',
     category: 'Technology',
@@ -3372,6 +3474,7 @@ export const seedData: Product[] = [
   {
     id: 89,
     title: 'Portable SSD 1TB',
+    slug: 'portable-ssd-1tb',
     description:
       'Ultra-fast portable SSD with USB 3.2 Gen 2 interface. Read speeds up to 1050MB/s. Compact, durable design with password protection.',
     category: 'Technology',
@@ -3410,6 +3513,7 @@ export const seedData: Product[] = [
   {
     id: 90,
     title: 'Noise Cancelling Headphones',
+    slug: 'noise-cancelling-headphones',
     description:
       'Premium over-ear headphones with active noise cancellation. 30-hour battery life. Comfortable memory foam ear cushions. Foldable design with carrying case.',
     category: 'Technology',
@@ -3444,10 +3548,13 @@ export const seedData: Product[] = [
     ],
     thumbnail:
       'https://images.unsplash.com/photo-1545127398-14699f92334b?w=200',
+    badge: 'Best Seller',
+    features: ['New Arrival'],
   },
   {
     id: 91,
     title: 'Tablet 10.5 inch',
+    slug: 'tablet-105-inch',
     description:
       'High-performance tablet with 10.5-inch display and 128GB storage. Octa-core processor with 6GB RAM. Includes stylus pen. Perfect for work and entertainment.',
     category: 'Technology',
@@ -3486,6 +3593,7 @@ export const seedData: Product[] = [
   {
     id: 92,
     title: 'Ring Light with Stand',
+    slug: 'ring-light-with-stand',
     description:
       '18-inch LED ring light with adjustable tripod stand. Dimmable with 3 color modes. Phone holder included. Perfect for photography and video recording.',
     category: 'Technology',
@@ -3524,6 +3632,7 @@ export const seedData: Product[] = [
   {
     id: 93,
     title: 'Wireless Charger 3-in-1',
+    slug: 'wireless-charger-3-in-1',
     description:
       'Fast wireless charging station for phone, watch, and earbuds. Qi-certified with LED indicator. Foldable design for travel. Case-friendly charging.',
     category: 'Technology',
@@ -3562,6 +3671,7 @@ export const seedData: Product[] = [
   {
     id: 94,
     title: 'Power Bank 20000mAh',
+    slug: 'power-bank-20000mah',
     description:
       'High-capacity portable power bank with dual USB ports and USB-C. Fast charging with LED display showing remaining power. Compact and lightweight.',
     category: 'Technology',
@@ -3600,6 +3710,7 @@ export const seedData: Product[] = [
   {
     id: 95,
     title: 'Mini Projector Portable',
+    slug: 'mini-projector-portable',
     description:
       'Compact portable projector with 1080p support. Built-in speaker and battery. Supports HDMI, USB, and wireless connectivity. Projects up to 100 inches.',
     category: 'Technology',
@@ -3638,6 +3749,7 @@ export const seedData: Product[] = [
   {
     id: 96,
     title: 'Cable Management Kit',
+    slug: 'cable-management-kit',
     description:
       'Complete cable organization system with cable clips, sleeves, and ties. Adhesive cable holders and under-desk cable tray. Keeps workspace tidy.',
     category: 'Technology',
@@ -3676,6 +3788,7 @@ export const seedData: Product[] = [
   {
     id: 97,
     title: 'Monitor Screen 27 inch',
+    slug: 'monitor-screen-27-inch',
     description:
       '27-inch QHD monitor with IPS panel and 144Hz refresh rate. HDR support with 99% sRGB color accuracy. Adjustable stand with VESA mount compatibility.',
     category: 'Technology',
@@ -3714,6 +3827,7 @@ export const seedData: Product[] = [
   {
     id: 98,
     title: 'Graphics Drawing Tablet',
+    slug: 'graphics-drawing-tablet',
     description:
       'Digital drawing tablet with 8192 pressure levels. Battery-free stylus with tilt recognition. 10x6 inch active area. Compatible with major design software.',
     category: 'Technology',
@@ -3752,6 +3866,7 @@ export const seedData: Product[] = [
   {
     id: 99,
     title: 'Phone Gimbal Stabilizer',
+    slug: 'phone-gimbal-stabilizer',
     description:
       '3-axis smartphone gimbal for smooth video recording. Foldable design with face tracking and gesture control. Up to 15-hour battery life.',
     category: 'Technology',
