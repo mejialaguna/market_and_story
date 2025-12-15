@@ -1,7 +1,6 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 import type { FC, JSX } from 'react';
 
-import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Slider } from './ui/slider';
 import { Label } from './ui/label';
@@ -24,15 +23,6 @@ export const ProductFilters: FC<ProductFiltersProps> = ({
   selectedFeatures,
   setSelectedFeatures,
 }): JSX.Element => {
-  const hasActiveFilters = useMemo(
-    () =>
-      selectedCategories.length > 0 ||
-      priceRange[0] > 0 ||
-      priceRange[1] < 1000 ||
-      selectedFeatures.length > 0,
-    [priceRange, selectedCategories.length, selectedFeatures.length]
-  );
-
   const handleCategoryToggle = useCallback(
     (category: string): void => {
       if (selectedCategories.includes(category)) {
@@ -51,25 +41,8 @@ export const ProductFilters: FC<ProductFiltersProps> = ({
       }
     }, [selectedFeatures, setSelectedFeatures]);
 
-  const handleClearAll = useCallback((): void => {
-    setSelectedCategories([]);
-    setPriceRange([0, 1000]);
-    setSelectedFeatures([]);
-  }, [setPriceRange, setSelectedCategories, setSelectedFeatures]);
-
   return (
     <div className='space-y-6'>
-      {hasActiveFilters && (
-        <Button
-          variant='outline'
-          size='sm'
-          onClick={handleClearAll}
-          className='w-full bg-transparent'
-        >
-          Clear All Filters
-        </Button>
-      )}
-
       <Card className='p-6'>
         <h3 className='font-semibold mb-4'>Categories</h3>
         <div className='space-y-3'>

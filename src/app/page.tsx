@@ -49,7 +49,7 @@ const Home:FC = (): JSX.Element => {
           </div>
         </section>
 
-        {/* Featured Categories */}
+        {/* Shop by Category section */}
         <section className='border-y border-border bg-secondary/30'>
           <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16'>
             <h2 className='font-serif text-3xl md:text-4xl font-semibold mb-8 text-balance'>Shop by Category</h2>
@@ -60,7 +60,12 @@ const Home:FC = (): JSX.Element => {
                 { name: 'Technology', image: 'sleek consumer electronics', type: 'technology' },
                 { name: 'Wellness', image: 'wellness and beauty products', type: 'wellness' },
               ].map((category) => (
-                <Link key={category.name} href={`/products?category=${category.name.toLowerCase()}`}>
+                <Link key={category.name} href={{
+                  pathname: '/products',
+                  query:{
+                    categoryFilter: `${category.name}`
+                  }
+                }}>
                   <Card className='group overflow-hidden border-border hover:shadow-lg transition-all duration-300'>
                     <div className='relative aspect-square overflow-hidden bg-muted'>
                       <Image
@@ -80,7 +85,7 @@ const Home:FC = (): JSX.Element => {
           </div>
         </section>
 
-        {/* Featured Products */}
+        {/* Featured Products section */}
         <section className='container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16'>
           <div className='flex justify-between items-end mb-8'>
             <h2 className='font-serif text-3xl md:text-4xl font-semibold text-balance'>Featured Products</h2>
@@ -118,7 +123,7 @@ const Home:FC = (): JSX.Element => {
           </div>
         </section>
 
-        {/* Editorial Content */}
+        {/* Latest Stories section */}
         <section className='bg-secondary/30 border-y border-border'>
           <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16'>
             <div className='flex justify-between items-end mb-8'>
@@ -184,7 +189,7 @@ const Home:FC = (): JSX.Element => {
           </div>
         </section>
 
-        {/* Live Content CTA */}
+        {/* Live Content CTA section*/}
         <section className='container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20'>
           <Card className='overflow-hidden border-border bg-primary text-primary-foreground'>
             <div className='grid lg:grid-cols-2 gap-0'>

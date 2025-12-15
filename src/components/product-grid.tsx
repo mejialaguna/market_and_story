@@ -1,15 +1,10 @@
 import { useMemo } from 'react';
 import type { FC, JSX } from 'react';
 
-import Image from 'next/image';
-import Link from 'next/link';
-
-import { Heart } from 'lucide-react';
-
 import { seedData } from '@/seed/seed';
 
-import { Badge } from './ui/badge';
-import { Card } from './ui/card';
+import { Button } from './ui/button';
+import { ProductCard } from './product-card';
 
 interface ProductGridProps {
   selectedCategories: string[];
@@ -17,14 +12,18 @@ interface ProductGridProps {
   selectedFeatures: string[];
   sortBy: string;
   setSortBy: (sort: string) => void;
+  handleClearAll: () => void;
+  hasActiveFilters: boolean;
 }
 
-const ProductGrid: FC<ProductGridProps> = ({
+export const ProductGrid: FC<ProductGridProps> = ({
   selectedCategories,
   priceRange,
   selectedFeatures,
   sortBy,
   setSortBy,
+  handleClearAll,
+  hasActiveFilters,
 }): JSX.Element => {
   const filteredProducts = useMemo(() => {
     let filtered = seedData;
@@ -45,7 +44,7 @@ const ProductGrid: FC<ProductGridProps> = ({
     // Filter by features
     if (selectedFeatures.length > 0) {
       filtered = filtered.filter((product) =>
-        selectedFeatures.some((feature) => product.features.includes(feature))
+        selectedFeatures.some((feature) => product?.features?.includes(feature))
       );
     }
 
@@ -77,7 +76,18 @@ const ProductGrid: FC<ProductGridProps> = ({
           {filteredProducts.length}{' '}
           {filteredProducts.length === 1 ? 'product' : 'products'}
         </p>
-        <select
+        <div className='flex gap-3.5'>
+        {hasActiveFilters && (
+        <Button
+          variant='outline'
+          size='sm'
+          onClick={handleClearAll}
+          className='bg-transparent'
+        >
+          Clear All Filters
+        </Button>
+      )}
+      <select
           className='text-sm border border-border rounded-md px-3 py-1.5 bg-background cursor-pointer'
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
@@ -87,6 +97,8 @@ const ProductGrid: FC<ProductGridProps> = ({
           <option value='price-high'>Price: High to Low</option>
           <option value='newest'>Newest</option>
         </select>
+        </div>
+        
       </div>
 
       {filteredProducts.length === 0 ? (
@@ -98,41 +110,10 @@ const ProductGrid: FC<ProductGridProps> = ({
       ) : (
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
           {filteredProducts.map((product) => (
-            <Link key={product.id} href={`/products/${product.id}`}>
-              <Card className='group overflow-hidden border-border hover:shadow-lg transition-all duration-300'>
-                <div className='relative aspect-square overflow-hidden bg-muted'>
-                  <Image
-                    src={
-                      product.images[0] ||
-                      '/placeholder.svg?height=400&width=400'
-                    }
-                    alt={product.name}
-                    fill
-                    className='object-cover group-hover:scale-105 transition-transform duration-300'
-                  />
-                  {product.badge && (
-                    <Badge className='absolute top-3 left-3 bg-accent text-accent-foreground'>
-                      {product.badge}
-                    </Badge>
-                  )}
-                  <button className='absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 hover:bg-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100'>
-                    <Heart className='h-4 w-4' />
-                  </button>
-                </div>
-                <div className='p-4 space-y-2'>
-                  <p className='text-xs text-muted-foreground uppercase tracking-wide'>
-                    {product.category}
-                  </p>
-                  <h3 className='font-medium'>{product.name}</h3>
-                  <p className='text-sm font-semibold'>${product.price}</p>
-                </div>
-              </Card>
-            </Link>
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       )}
     </div>
   );
 };
-
-export default ProductGrid;
