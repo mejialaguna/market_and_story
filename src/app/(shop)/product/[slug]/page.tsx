@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { Suspense } from 'react';
 
 import { notFound } from 'next/navigation';
 
@@ -8,6 +9,8 @@ import { seedData } from '@/seed/seed';
 import ProductImage from '@/components/product-image';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { ProductRecommendations, RecommendationsSkeleton } from '@/components/product-recommendations';
+import { ReviewList } from '@/components/review-list';
 
 // import type { Metadata, ResolvingMetadata } from 'next';
 
@@ -103,7 +106,7 @@ export default async function ProductPage({
                 ))}
               </div>
               <span className='text-sm text-muted-foreground'>
-                {product.rating} ({product?.reviews} reviews)
+                {product.rating} { product?.reviews || 0 } reviews
               </span>
             </div>
 
@@ -152,20 +155,22 @@ export default async function ProductPage({
           <h2 className='font-serif text-3xl font-semibold mb-8'>
             Customer Reviews
           </h2>
-          {/* <div className='grid lg:grid-cols-3 gap-8'>
+          <div className='grid lg:grid-cols-3 gap-8'>
             <div className='lg:col-span-2'>
-              <ReviewList productId={product.id} />
+              <ReviewList slug={slug} />
             </div>
             <div className='lg:col-span-1'>
-              <ReviewForm productId={product.id} />
+              {/* <ReviewForm productId={product.id} /> */}
             </div>
-          </div> */}
+          </div>
         </div>
 
         {/* AI-Powered Recommendations */}
-        {/* <div className='mt-20'>
-          <ProductRecommendations currentProductId={product.id} />
-        </div> */}
+        <div className='mt-20'>
+          <Suspense fallback={<RecommendationsSkeleton />}>
+            <ProductRecommendations category={product.category} />
+          </Suspense>
+        </div>
       </div>
     </main>
   );

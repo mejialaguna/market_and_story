@@ -115,9 +115,9 @@ export const ProductGrid: FC<ProductGridProps> = ({
         </div>
       ) : (
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {filteredProducts.map((product) => (
+          {filteredProducts.map((product, idx) => (
             <Link key={product.id} href={`/product/${product.slug}`}>
-              <ProductCard product={product} />
+              <ProductCard product={product} priority={idx < 4}/>
             </Link>
           ))}
         </div>

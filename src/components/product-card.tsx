@@ -12,12 +12,14 @@ interface ProductCardProps {
   product: Product;
   showExtendedInfo?: boolean;
   categoryStyle?: string;
+  priority?: boolean;
 }
 
 export const ProductCard: FC<ProductCardProps> = ({
   product,
   showExtendedInfo = true,
   categoryStyle = '',
+  priority = false,
 }): JSX.Element => {
 
   return (
@@ -26,6 +28,7 @@ export const ProductCard: FC<ProductCardProps> = ({
         <ProductImage
           product={product}
           className='object-cover group-hover:scale-105 transition-transform duration-300'
+          priority={priority}
         />
         {showExtendedInfo && product.badge && (
           <Badge className='absolute top-3 left-3 bg-accent text-accent-foreground'>
