@@ -4,12 +4,13 @@ import { ProductWrapper } from '@/components/product-wrapper';
 
 export interface PageProps {
   searchParams: {
-    categoryFilter: string;
+    categoryFilter?: string;
+    sortBy?: string;
   };
 }
 
 const page: FC<PageProps> = async ({searchParams}): Promise<JSX.Element> => {
-  const { categoryFilter } = await searchParams;
+  const { categoryFilter, sortBy } = await searchParams;
 
   return (
     <main className='flex-1 my-auto'>
@@ -24,7 +25,7 @@ const page: FC<PageProps> = async ({searchParams}): Promise<JSX.Element> => {
         </div>
       </div>
 
-      <ProductWrapper categoryFilter={categoryFilter}/>
+      <ProductWrapper categoryFilter={categoryFilter} sortBy={sortBy}/>
     </main>
   );
 };

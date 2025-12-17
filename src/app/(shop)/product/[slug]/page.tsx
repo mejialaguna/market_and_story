@@ -5,14 +5,16 @@ import { notFound } from 'next/navigation';
 
 import { Star, Heart, ShoppingBag } from 'lucide-react';
 
-import { seedData } from '@/seed/seed';
 import ProductImage from '@/components/product-image';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ProductRecommendations, RecommendationsSkeleton } from '@/components/product-recommendations';
 import { ReviewList } from '@/components/review-list';
+import { ReviewForm } from '@/components/review-form.';
+import { getProductBySlug } from '@/helpers/getProductBySlug';
+import { resolveOpenGraphImage } from '@/lib/utils';
 
-// import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata, ResolvingMetadata } from 'next';
 
 export interface PageProps {
   params: {
@@ -20,39 +22,35 @@ export interface PageProps {
   };
 }
 
-// export async function generateMetadata(
-//   { params }: PageProps,
-//   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-//   parent: ResolvingMetadata
-// ): Promise<Metadata> {
-//   // read route params
-//   const slug = params.slug;
+export async function generateMetadata(
+  { params }: PageProps,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const { slug } = await params;
 
-//   const product = await getProductBySlug(slug);
-//   const src = product?.images[0];
-//   const image = src
-//     ? src.startsWith('http') || src.startsWith('blob')
-//       ? src
-//       : `/products/${src}`
-//     : '/imgs/placeholder.jpg';
+  const product = await getProductBySlug(slug);
+  const src = product?.images;
+  const images = await resolveOpenGraphImage(src);
 
-//   return {
-//     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
-//     title: product?.title,
-//     description: product?.description,
-//     openGraph: {
-//       title: product?.title,
-//       description: product?.description,
-//       images: [image],
-//     },
-//   };
-// }
+  return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
+    title: product?.title,
+    description: product?.description,
+    openGraph: {
+      title: product?.title,
+      description: product?.description,
+      images,
+    },
+  };
+}
 
 export default async function ProductPage({
   params,
 }: PageProps): Promise<JSX.Element> {
   const { slug } = await params;
-  const product = seedData.find((product) => product.slug === slug);
+  const product = getProductBySlug(slug);
 
   if (!product) {
     notFound();
@@ -106,7 +104,7 @@ export default async function ProductPage({
                 ))}
               </div>
               <span className='text-sm text-muted-foreground'>
-                {product.rating} { product?.reviews || 0 } reviews
+                {product.rating} ({product?.reviews.length || 0} reviews)
               </span>
             </div>
 
@@ -145,6 +143,7 @@ export default async function ProductPage({
                 ))}
                 <li className='capitalize'>brand: {product?.brand}</li>
                 <li className='capitalize'>features: {product?.features}</li>
+                <li className='capitalize'>return policy: {product?.returnPolicy}</li>
               </ul>
             </Card>
           </div>
@@ -157,10 +156,10 @@ export default async function ProductPage({
           </h2>
           <div className='grid lg:grid-cols-3 gap-8'>
             <div className='lg:col-span-2'>
-              <ReviewList slug={slug} />
+              <ReviewList productReviews={product.reviews} />
             </div>
             <div className='lg:col-span-1'>
-              {/* <ReviewForm productId={product.id} /> */}
+              <ReviewForm productId={product.id} productSlug={slug} />
             </div>
           </div>
         </div>

@@ -7,10 +7,10 @@ import { ArrowRight } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import type { Product } from '@/seed/seed';
 import { seedData } from '@/seed/seed';
 import { ProductCard } from '@/components/product-card';
 import { getSingleProductsByCategory } from '@/helpers/getSingleProductsByCategory';
+import type { Product } from '@/lib/content-types';
 
 const showCaseProducts = getSingleProductsByCategory(seedData, 4);
 

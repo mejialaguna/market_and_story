@@ -19,22 +19,9 @@ export const metadata: Metadata = {
   title: 'market&story - Modern Retail & Media',
   description: 'Discover curated products and inspiring stories',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
+    icon: 'https://res.cloudinary.com/jlml/image/upload/v1765993699/market_and_story/logo.png',
+    apple: 'https://res.cloudinary.com/jlml/image/upload/v1765993699/market_and_story/logo.png'
+  }
 };
 
 export default function RootLayout({
