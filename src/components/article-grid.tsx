@@ -32,7 +32,7 @@ export const ArticleGrid: FC<ArticleGridProps> = ({
                 <div className='grid md:grid-cols-2 gap-0'>
                   <div className='relative aspect-video md:aspect-auto overflow-hidden bg-muted min-h-[300px]'>
                     <Image
-                      src={article.heroImage || '/placeholder.svg'}
+                      src={article.heroImage}
                       alt={article.title}
                       fill
                       className='object-cover group-hover:scale-105 transition-transform duration-300'
@@ -55,7 +55,7 @@ export const ArticleGrid: FC<ArticleGridProps> = ({
                       <div className='flex items-center gap-3'>
                         <div className='w-10 h-10 rounded-full bg-muted overflow-hidden'>
                           <Image
-                            src={article.authorImage || '/placeholder.svg'}
+                            src={article.authorImage}
                             alt={article.author}
                             width={40}
                             height={40}
@@ -98,7 +98,7 @@ export const ArticleGrid: FC<ArticleGridProps> = ({
               <Card className='group overflow-hidden border-border hover:shadow-lg transition-all duration-300 h-full flex flex-col'>
                 <div className='relative aspect-video overflow-hidden bg-muted'>
                   <Image
-                    src={article.heroImage || '/placeholder.svg'}
+                    src={article.heroImage}
                     alt={article.title}
                     fill
                     className='object-cover group-hover:scale-105 transition-transform duration-300'
@@ -121,7 +121,7 @@ export const ArticleGrid: FC<ArticleGridProps> = ({
                     <div className='flex items-center gap-2'>
                       <div className='w-8 h-8 rounded-full bg-muted overflow-hidden'>
                         <Image
-                          src={article.authorImage || '/placeholder.svg'}
+                          src={article?.authorImage}
                           alt={article.author}
                           width={32}
                           height={32}

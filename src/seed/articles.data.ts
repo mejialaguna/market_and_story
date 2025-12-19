@@ -17,7 +17,7 @@ export interface Article {
 }
 
 export interface ArticleSection {
-  type: 'paragraph' | 'heading' | 'blockquote' | 'product-mention' | 'product-card'
+  type: 'paragraph' | 'heading' | 'blockquote' | 'product-card'
   content?: string
   level?: 2 | 3
   productId?: number
@@ -32,7 +32,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Exploring how intentional design shapes our daily experiences and wellbeing in modern homes.',
     author: 'Sarah Chen',
     authorBio: 'Design writer and mindfulness advocate based in Brooklyn',
-    authorImage: '/author-sarah.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'March 15, 2024',
     readTime: '8 min read',
     category: 'Lifestyle',
@@ -59,18 +59,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Take lighting, for example. A well-designed desk lamp can transform your workspace from merely functional to genuinely inspiring. Our',
-      },
-      {
-        type: 'product-mention',
-        productId: 1,
-        inline: true,
-        content: 'Minimalist Desk Lamp',
-      },
-      {
-        type: 'paragraph',
-        content:
-          "embodies this philosophy perfectly—clean lines, adjustable brightness, and a timeless aesthetic that complements any interior. It's not just illumination; it's a statement about valuing quality over quantity.",
+          'Take lighting, for example. A well-designed desk lamp can transform your workspace from merely functional to genuinely inspiring. Our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Modern Ceramic Vase Set - $49.99" href="/product/modern-ceramic-vase-set">Minimalist Desk Lamp</a> embodies this philosophy perfectly—clean lines, adjustable brightness, and a timeless aesthetic that complements any interior. It\'s not just illumination; it\'s a statement about valuing quality over quantity.',
       },
       {
         type: 'paragraph',
@@ -113,18 +102,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          "Natural textiles play a crucial role in creating cozy, breathable spaces. Linen, cotton, and wool aren't just sustainable choices—they're sensory experiences. The",
-      },
-      {
-        type: 'product-mention',
-        productId: 6,
-        inline: true,
-        content: 'Linen Throw Pillow',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'in our collection demonstrates how a single thoughtful addition can transform a space. Its natural fibers regulate temperature, improve with age, and add texture without overwhelming the senses.',
+          'Natural textiles play a crucial role in creating cozy, breathable spaces. Linen, cotton, and wool aren\'t just sustainable choices—they\'re sensory experiences. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Memory Foam Bath Mat - $24.99" href="/product/memory-foam-bath-mat">Memory Foam Bath Mat</a> in our collection demonstrates how a single thoughtful addition can transform a space. Its natural fibers regulate temperature, improve with age, and add texture without overwhelming the senses.',
       },
       {
         type: 'heading',
@@ -133,18 +111,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: 'paragraph',
-        content: 'A quality area rug anchors a room and provides both visual and physical warmth. Our',
-      },
-      {
-        type: 'product-mention',
-        productId: 10,
-        inline: true,
-        content: 'Wool Area Rug',
-      },
-      {
-        type: 'paragraph',
-        content:
-          "is handwoven using traditional techniques, resulting in a piece that will last decades. It's an investment in both aesthetics and longevity—exactly what mindful consumption is about.",
+        content: 'A quality area rug anchors a room and provides both visual and physical warmth. Our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Stainless Steel Trash Can - $69.99" href="/product/stainless-steel-trash-can">Stainless Steel Trash Can</a> is handwoven using traditional techniques, resulting in a piece that will last decades. It\'s an investment in both aesthetics and longevity—exactly what mindful consumption is about.',
       },
       {
         type: 'heading',
@@ -170,7 +137,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Meet the designers reimagining fashion with eco-conscious materials and innovative practices.',
     author: 'Marcus Johnson',
     authorBio: 'Fashion journalist and sustainability advocate',
-    authorImage: '/author-marcus.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990219/market_and_story/product-manager.png',
     publishedAt: 'March 12, 2024',
     readTime: '6 min read',
     category: 'Fashion',
@@ -196,18 +163,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: 'paragraph',
-        content: 'Take our',
-      },
-      {
-        type: 'product-mention',
-        productId: 48,
-        inline: true,
-        content: 'Organic Cotton T-Shirt',
-      },
-      {
-        type: 'paragraph',
-        content:
-          "—it represents the baseline of sustainable fashion. Made from GOTS-certified organic cotton, it uses 91% less water than conventional cotton and eliminates harmful pesticides from the production process. But more importantly, it's incredibly soft, durable, and gets better with every wash.",
+        content: 'Take our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Yoga Leggings - $38.99" href="/product/yoga-leggings">Yoga Leggings</a>—it represents the baseline of sustainable fashion. Made from GOTS-certified organic cotton, it uses 91% less water than conventional cotton and eliminates harmful pesticides from the production process. But more importantly, it\'s incredibly soft, durable, and gets better with every wash.',
       },
       {
         type: 'product-card',
@@ -230,18 +186,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: 'paragraph',
-        content: 'Accessories play a key role in this shift. Our',
-      },
-      {
-        type: 'product-mention',
-        productId: 52,
-        inline: true,
-        content: 'Merino Wool Scarf',
-      },
-      {
-        type: 'paragraph',
-        content:
-          "is crafted from ethically sourced merino wool, naturally renewable and biodegradable. It's the kind of piece you'll reach for season after season, decade after decade.",
+        content: 'Accessories play a key role in this shift. Our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Denim Jacket - $68.99" href="/product/denim-jacket">Denim Jacket</a> is crafted from ethically sourced merino wool, naturally renewable and biodegradable. It\'s the kind of piece you\'ll reach for season after season, decade after decade.',
       },
       {
         type: 'heading',
@@ -267,7 +212,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'How modern offices are adapting to hybrid work models with flexible, human-centered spaces.',
     author: 'Elena Rodriguez',
     authorBio: 'Workplace strategist and interior architect',
-    authorImage: '/author-elena.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'March 10, 2024',
     readTime: '7 min read',
     category: 'Design',
@@ -288,18 +233,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: 'paragraph',
-        content: "Good lighting isn't optional—it's essential. Our",
-      },
-      {
-        type: 'product-mention',
-        productId: 1,
-        inline: true,
-        content: 'Minimalist Desk Lamp',
-      },
-      {
-        type: 'paragraph',
-        content:
-          "features adjustable color temperature to match natural daylight cycles, reducing eye strain and supporting your circadian rhythm. It's the kind of detail that makes the difference between enduring a workday and thriving through it.",
+        content: 'Good lighting isn\'t optional—it\'s essential. Our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Modern Ceramic Vase Set - $49.99" href="/product/modern-ceramic-vase-set">Modern Ceramic Vase Set</a> features adjustable color temperature to match natural daylight cycles, reducing eye strain and supporting your circadian rhythm. It\'s the kind of detail that makes the difference between enduring a workday and thriving through it.',
       },
       {
         type: 'product-card',
@@ -317,33 +251,11 @@ export const ARTICLES: Article[] = [
       },
       {
         type: 'paragraph',
-        content: 'Modern workspaces require seamless technology integration. Our',
-      },
-      {
-        type: 'product-mention',
-        productId: 81,
-        inline: true,
-        content: 'Wireless Earbuds',
+        content: 'Modern workspaces require seamless technology integration. Our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Wireless Earbuds Pro - $149.99" href="/product/wireless-earbuds-pro">Wireless Earbuds Pro</a> offer noise-cancellation that creates a bubble of focus, even in busy households. The ergonomic design means you can wear them comfortably through back-to-back video calls.',
       },
       {
         type: 'paragraph',
-        content:
-          'offer noise-cancellation that creates a bubble of focus, even in busy households. The ergonomic design means you can wear them comfortably through back-to-back video calls.',
-      },
-      {
-        type: 'paragraph',
-        content: 'Cable management matters more than you think. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 89,
-        inline: true,
-        content: 'Leather Cable Organizer',
-      },
-      {
-        type: 'paragraph',
-        content:
-          "keeps your workspace tidy and your mind uncluttered. It's a small investment that pays dividends in mental clarity.",
+        content: 'Cable management matters more than you think. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Portable SSD 1TB - $119.99" href="/product/portable-ssd-1tb">Portable SSD 1TB</a> keeps your workspace tidy and your mind uncluttered. It\'s a small investment that pays dividends in mental clarity.',
       },
       {
         type: 'heading',
@@ -364,7 +276,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Discover how the right bedding and bedroom essentials can transform your sleep quality and daily energy.',
     author: 'Dr. Maya Thompson',
     authorBio: 'Sleep specialist and wellness consultant',
-    authorImage: '/author-maya.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'March 8, 2024',
     readTime: '9 min read',
     category: 'Wellness',
@@ -386,18 +298,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Natural fibers breathe with your body, regulating temperature throughout the night. Our',
-      },
-      {
-        type: 'product-mention',
-        productId: 2,
-        inline: true,
-        content: 'Luxury Cotton Bedding Set',
-      },
-      {
-        type: 'paragraph',
-        content:
-          "crafted from Egyptian cotton, offers that perfect balance of softness and breathability. The 400 thread count ensures durability without sacrificing comfort—it's an investment in better sleep that pays dividends every night.",
+          'Natural fibers breathe with your body, regulating temperature throughout the night. Our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Luxury Cotton Bedding Set - $129.99" href="/product/luxury-cotton-bedding-set">Luxury Cotton Bedding Set</a> crafted from Egyptian cotton, offers that perfect balance of softness and breathability. The 400 thread count ensures durability without sacrificing comfort—it\'s an investment in better sleep that pays dividends every night.',
       },
       {
         type: 'heading',
@@ -426,18 +327,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Scent has a direct pathway to the brain\'s emotional center. Essential oils like lavender, chamomile, and bergamot have been clinically shown to reduce anxiety and improve sleep quality. Our',
-      },
-      {
-        type: 'product-mention',
-        productId: 15,
-        inline: true,
-        content: 'Essential Oil Diffuser',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'runs silently for up to 10 hours, creating a subtle aromatic environment that supports your natural sleep cycle without overwhelming the senses.',
+          'Scent has a direct pathway to the brain\'s emotional center. Essential oils like lavender, chamomile, and bergamot have been clinically shown to reduce anxiety and improve sleep quality. Our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Essential Oil Diffuser - $29.99" href="/product/essential-oil-diffuser">Essential Oil Diffuser</a> runs silently for up to 10 hours, creating a subtle aromatic environment that supports your natural sleep cycle without overwhelming the senses.',
       },
       {
         type: 'paragraph',
@@ -453,7 +343,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'A practical guide to building an eco-conscious kitchen with products that perform as well as they look.',
     author: 'James Park',
     authorBio: 'Sustainable living advocate and culinary writer',
-    authorImage: '/author-james.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/ceo.png',
     publishedAt: 'March 5, 2024',
     readTime: '7 min read',
     category: 'Lifestyle',
@@ -479,18 +369,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Bamboo grows rapidly without pesticides, making it one of the most sustainable materials available. Unlike plastic utensils that leach chemicals when heated, bamboo remains stable at high temperatures. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 4,
-        inline: true,
-        content: 'Bamboo Kitchen Utensil Set',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'includes everything needed for daily cooking—spatulas, spoons, tongs—all naturally antimicrobial and gentle on cookware.',
+          'Bamboo grows rapidly without pesticides, making it one of the most sustainable materials available. Unlike plastic utensils that leach chemicals when heated, bamboo remains stable at high temperatures. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Bamboo Kitchen Utensil Set - $34.99" href="/product/bamboo-kitchen-utensil-set">Bamboo Kitchen Utensil Set</a> includes everything needed for daily cooking—spatulas, spoons, tongs—all naturally antimicrobial and gentle on cookware.',
       },
       {
         type: 'heading',
@@ -500,18 +379,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Glass storage containers eliminate plastic waste and potential chemical exposure. Our',
-      },
-      {
-        type: 'product-mention',
-        productId: 28,
-        inline: true,
-        content: 'Glass Food Storage Containers',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'are oven-safe, microwave-safe, and dishwasher-safe—truly versatile. The airtight seals keep food fresh longer, reducing food waste, one of the biggest contributors to household environmental impact.',
+          'Glass storage containers eliminate plastic waste and potential chemical exposure. Our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Glass Food Storage Containers - $44.99" href="/product/glass-food-storage-containers">Glass Food Storage Containers</a> are oven-safe, microwave-safe, and dishwasher-safe—truly versatile. The airtight seals keep food fresh longer, reducing food waste, one of the biggest contributors to household environmental impact.',
       },
       {
         type: 'blockquote',
@@ -541,7 +409,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Learn the art of curating a minimalist wardrobe that maximizes style while minimizing environmental impact.',
     author: 'Sophia Laurent',
     authorBio: 'Fashion editor and minimalist lifestyle expert',
-    authorImage: '/author-sophia.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'March 2, 2024',
     readTime: '8 min read',
     category: 'Fashion',
@@ -563,18 +431,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Every capsule wardrobe starts with quality basics. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 41,
-        inline: true,
-        content: 'Classic White T-Shirt',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'in premium cotton is the ultimate foundation piece—equally at home under a blazer or paired with jeans for weekend errands. The key is fit and fabric quality. A well-made basic will maintain its shape and color through countless washes.',
+          'Every capsule wardrobe starts with quality basics. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Classic White T-Shirt - $19.99" href="/product/classic-white-t-shirt">Classic White T-Shirt</a> in premium cotton is the ultimate foundation piece—equally at home under a blazer or paired with jeans for weekend errands. The key is fit and fabric quality. A well-made basic will maintain its shape and color through countless washes.',
       },
       {
         type: 'product-card',
@@ -593,18 +450,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Cashmere isn\'t just a luxury—it\'s a practical investment. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 45,
-        inline: true,
-        content: 'Cashmere Sweater',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'is eight times warmer than wool yet lighter and softer. With proper care, a quality cashmere piece will last decades, making its cost-per-wear remarkably low.',
+          'Cashmere isn\'t just a luxury—it\'s a practical investment. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Cashmere Sweater - $129.99" href="/product/cashmere-sweater">Cashmere Sweater</a> is eight times warmer than wool yet lighter and softer. With proper care, a quality cashmere piece will last decades, making its cost-per-wear remarkably low.',
       },
       {
         type: 'heading',
@@ -630,7 +476,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Explore the science-backed benefits of houseplants and natural materials in creating healthier living spaces.',
     author: 'Dr. Robert Green',
     authorBio: 'Environmental psychologist and biophilic design consultant',
-    authorImage: '/author-robert.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990219/market_and_story/product-manager.png',
     publishedAt: 'February 28, 2024',
     readTime: '6 min read',
     category: 'Wellness',
@@ -661,18 +507,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'The',
-      },
-      {
-        type: 'product-mention',
-        productId: 7,
-        inline: true,
-        content: 'Indoor Plant Stand Set',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'creates visual interest through varying heights, drawing the eye upward and making spaces feel larger. The matte black finish provides a modern contrast to organic greenery.',
+          'The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Indoor Plant Stand Set - $56.99" href="/product/indoor-plant-stand-set">Indoor Plant Stand Set</a> creates visual interest through varying heights, drawing the eye upward and making spaces feel larger. The matte black finish provides a modern contrast to organic greenery.',
       },
       {
         type: 'heading',
@@ -682,18 +517,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Not everyone has a green thumb, and that\'s okay. Our',
-      },
-      {
-        type: 'product-mention',
-        productId: 37,
-        inline: true,
-        content: 'Artificial Succulent Plants',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'provide the psychological benefits of greenery without the maintenance. Remarkably realistic, they add life to spaces where natural plants struggle—windowless bathrooms, dark corners, or frequently traveled areas.',
+          'Not everyone has a green thumb, and that\'s okay. Our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Artificial Succulent Plants Set - $23.99" href="/product/artificial-succulent-plants-set">Artificial Succulent Plants Set</a> provide the psychological benefits of greenery without the maintenance. Remarkably realistic, they add life to spaces where natural plants struggle—windowless bathrooms, dark corners, or frequently traveled areas.',
       },
       {
         type: 'heading',
@@ -719,7 +543,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Embrace the meditative practice of cooking with tools designed for longevity and performance.',
     author: 'Chef Maria Santos',
     authorBio: 'Culinary instructor and advocate for mindful cooking',
-    authorImage: '/author-maria.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'February 25, 2024',
     readTime: '7 min read',
     category: 'Lifestyle',
@@ -745,18 +569,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Quality cookware makes cooking a pleasure rather than a chore. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 17,
-        inline: true,
-        content: 'Non-Stick Cookware Set',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'with its even heat distribution and PFOA-free coating, allows you to cook with less oil while ensuring nothing sticks or burns. The glass lids let you monitor without releasing heat—a small detail that makes a real difference.',
+          'Quality cookware makes cooking a pleasure rather than a chore. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Non-Stick Cookware Set - $119.99" href="/product/non-stick-cookware-set">Non-Stick Cookware Set</a> with its even heat distribution and PFOA-free coating, allows you to cook with less oil while ensuring nothing sticks or burns. The glass lids let you monitor without releasing heat—a small detail that makes a real difference.',
       },
       {
         type: 'heading',
@@ -766,18 +579,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'A good knife is the most important tool in any kitchen. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 34,
-        inline: true,
-        content: 'Knife Block Set',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'includes every blade you\'ll need: a chef\'s knife for most tasks, a serrated knife for bread, paring knives for detailed work. High-carbon stainless steel holds its edge longer and sharpens easily.',
+          'A good knife is the most important tool in any kitchen. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Knife Block Set - $99.99" href="/product/knife-block-set">Knife Block Set</a> includes every blade you\'ll need: a chef\'s knife for most tasks, a serrated knife for bread, paring knives for detailed work. High-carbon stainless steel holds its edge longer and sharpens easily.',
       },
       {
         type: 'blockquote',
@@ -807,7 +609,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Discover how technical fabrics and versatile designs create clothing that works as hard as you do.',
     author: 'Alex Rivera',
     authorBio: 'Fitness journalist and style consultant',
-    authorImage: '/author-alex.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/ceo.png',
     publishedAt: 'February 22, 2024',
     readTime: '6 min read',
     category: 'Fashion',
@@ -833,18 +635,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'The',
-      },
-      {
-        type: 'product-mention',
-        productId: 48,
-        inline: true,
-        content: 'Yoga Leggings',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'exemplify modern activewear. Four-way stretch moves with your body. Moisture-wicking fabric keeps you dry. The high waist provides coverage and support. And the hidden pocket? Essential for keys or cards.',
+          'The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Yoga Leggings - $38.99" href="/product/yoga-leggings">Yoga Leggings</a> exemplify modern activewear. Four-way stretch moves with your body. Moisture-wicking fabric keeps you dry. The high waist provides coverage and support. And the hidden pocket? Essential for keys or cards.',
       },
       {
         type: 'heading',
@@ -854,18 +645,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Running shoes have evolved far beyond the track. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 46,
-        inline: true,
-        content: 'Running Shoes',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'feature responsive foam that adapts to your stride, providing cushioning exactly where needed. The breathable mesh upper prevents overheating, while the sleek design transitions seamlessly from workout to weekend.',
+          'Running shoes have evolved far beyond the track. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Running Shoes - $89.99" href="/product/running-shoes">Running Shoes</a> feature responsive foam that adapts to your stride, providing cushioning exactly where needed. The breathable mesh upper prevents overheating, while the sleek design transitions seamlessly from workout to weekend.',
       },
       {
         type: 'heading',
@@ -891,7 +671,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Transform your home into a multisensory sanctuary through intentional design choices.',
     author: 'Isabella Cross',
     authorBio: 'Interior designer specializing in experiential spaces',
-    authorImage: '/author-isabella.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'February 19, 2024',
     readTime: '8 min read',
     category: 'Design',
@@ -917,18 +697,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Velvet isn\'t just beautiful—it\'s an invitation to touch. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 9,
-        inline: true,
-        content: 'Velvet Throw Pillows',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'add tactile interest to any seating area. The rich emerald green provides visual depth while the soft pile begs to be touched. Varying textures throughout a space creates sensory richness.',
+          'Velvet isn\'t just beautiful—it\'s an invitation to touch. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Velvet Throw Pillows Set - $44.99" href="/product/velvet-throw-pillows-set">Velvet Throw Pillows Set</a> add tactile interest to any seating area. The rich emerald green provides visual depth while the soft pile begs to be touched. Varying textures throughout a space creates sensory richness.',
       },
       {
         type: 'heading',
@@ -938,18 +707,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Scent triggers memory and emotion more powerfully than any other sense. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 3,
-        inline: true,
-        content: 'Scented Soy Candle Collection',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'offers six distinct scents to match different moods and seasons. Lavender for evening relaxation. Citrus for morning energy. Ocean breeze for summer nostalgia. Each scent shapes the atmosphere invisibly but profoundly.',
+          'Scent triggers memory and emotion more powerfully than any other sense. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Scented Soy Candle Collection - $39.99" href="/product/scented-soy-candle-collection">Scented Soy Candle Collection</a> offers six distinct scents to match different moods and seasons. Lavender for evening relaxation. Citrus for morning energy. Ocean breeze for summer nostalgia. Each scent shapes the atmosphere invisibly but profoundly.',
       },
       {
         type: 'blockquote',
@@ -979,7 +737,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Learn proven techniques for making small spaces feel open, organized, and uniquely yours.',
     author: 'Tom Anderson',
     authorBio: 'Urban living specialist and space-planning consultant',
-    authorImage: '/author-tom.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990219/market_and_story/product-manager.png',
     publishedAt: 'February 16, 2024',
     readTime: '7 min read',
     category: 'Design',
@@ -1005,18 +763,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'When floor space is limited, think vertically. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 11,
-        inline: true,
-        content: 'Wooden Floating Shelves',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'create storage and display space without consuming floor area. The hidden bracket system maintains clean lines, while the walnut finish adds warmth. Install them above desks, in kitchens, or flanking windows.',
+          'When floor space is limited, think vertically. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Wooden Floating Shelves - $44.99" href="/product/wooden-floating-shelves">Wooden Floating Shelves</a> create storage and display space without consuming floor area. The hidden bracket system maintains clean lines, while the walnut finish adds warmth. Install them above desks, in kitchens, or flanking windows.',
       },
       {
         type: 'heading',
@@ -1026,18 +773,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Visible clutter makes small spaces feel chaotic. Our',
-      },
-      {
-        type: 'product-mention',
-        productId: 16,
-        inline: true,
-        content: 'Woven Storage Baskets',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'hide necessary items while adding natural texture. Use them for throw blankets, toys, magazines, or laundry. The collapsible design means they can be stored flat when not in use.',
+          'Visible clutter makes small spaces feel chaotic. Our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Woven Storage Baskets - $41.99" href="/product/woven-storage-baskets">Woven Storage Baskets</a> hide necessary items while adding natural texture. Use them for throw blankets, toys, magazines, or laundry. The collapsible design means they can be stored flat when not in use.',
       },
       {
         type: 'heading',
@@ -1063,7 +799,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Create a personal sanctuary with thoughtful touches that make every shower and bath a restorative experience.',
     author: 'Natalie Kim',
     authorBio: 'Wellness writer and spa therapist',
-    authorImage: '/author-natalie.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'February 13, 2024',
     readTime: '6 min read',
     category: 'Wellness',
@@ -1099,18 +835,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'The',
-      },
-      {
-        type: 'product-mention',
-        productId: 6,
-        inline: true,
-        content: 'Memory Foam Bath Mat',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'transforms a functional necessity into a comfort feature. The memory foam conforms to your feet, providing cushioning that\'s especially welcome on cold tile mornings. The microfiber surface dries quickly, preventing musty odors.',
+          'The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Memory Foam Bath Mat - $24.99" href="/product/memory-foam-bath-mat">Memory Foam Bath Mat</a> transforms a functional necessity into a comfort feature. The memory foam conforms to your feet, providing cushioning that\'s especially welcome on cold tile mornings. The microfiber surface dries quickly, preventing musty odors.',
       },
       {
         type: 'heading',
@@ -1136,7 +861,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Discover the joy of setting a beautiful table, even on a Tuesday night.',
     author: 'Patricia Wong',
     authorBio: 'Culinary anthropologist and entertaining expert',
-    authorImage: '/author-patricia.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'February 10, 2024',
     readTime: '7 min read',
     category: 'Culture',
@@ -1162,18 +887,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Modern matte ceramic dinnerware strikes the perfect balance—refined enough for dinner parties, durable enough for daily use. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 23,
-        inline: true,
-        content: 'Ceramic Dinnerware Set',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'is microwave and dishwasher safe, meaning you can actually use it without fuss. The neutral palette complements any tablecloth or placemat while letting food colors shine.',
+          'Modern matte ceramic dinnerware strikes the perfect balance—refined enough for dinner parties, durable enough for daily use. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Ceramic Dinnerware Set - $84.99" href="/product/ceramic-dinnerware-set">Ceramic Dinnerware Set</a> is microwave and dishwasher safe, meaning you can actually use it without fuss. The neutral palette complements any tablecloth or placemat while letting food colors shine.',
       },
       {
         type: 'heading',
@@ -1213,7 +927,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Discover tech tools designed to enhance focus, reduce screen time, and support mental wellness.',
     author: 'Dr. Kevin Martinez',
     authorBio: 'Technology ethicist and digital wellness researcher',
-    authorImage: '/author-kevin.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/ceo.png',
     publishedAt: 'February 7, 2024',
     readTime: '8 min read',
     category: 'Technology',
@@ -1239,18 +953,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Noise-canceling earbuds aren\'t just for music. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 81,
-        inline: true,
-        content: 'Wireless Earbuds Pro',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'create a bubble of focus in chaotic environments. Active noise cancellation blocks ambient noise without requiring loud volumes that damage hearing. Use them with white noise, nature sounds, or silence itself—a radical act in our noisy world.',
+          'Noise-canceling earbuds aren\'t just for music. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Wireless Earbuds Pro - $129.99" href="/product/wireless-earbuds-pro">Wireless Earbuds Pro</a> create a bubble of focus in chaotic environments. Active noise cancellation blocks ambient noise without requiring loud volumes that damage hearing. Use them with white noise, nature sounds, or silence itself—a radical act in our noisy world.',
       },
       {
         type: 'heading',
@@ -1261,12 +964,6 @@ export const ARTICLES: Article[] = [
         type: 'paragraph',
         content:
           'E-ink displays provide the reading experience of paper without the environmental impact. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 107,
-        inline: true,
-        content: 'E-Reader',
       },
       {
         type: 'paragraph',
@@ -1301,7 +998,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Essential tech upgrades that make remote work sustainable for your body and your output.',
     author: 'Amanda Foster',
     authorBio: 'Ergonomics consultant and remote work specialist',
-    authorImage: '/author-amanda.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'February 4, 2024',
     readTime: '9 min read',
     category: 'Technology',
@@ -1327,18 +1024,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Laptops force you to look down, creating neck strain that compounds daily. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 84,
-        inline: true,
-        content: 'Aluminum Laptop Stand',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'raises your screen to proper eye level while improving airflow for cooling. The adjustable design accommodates different heights and preferences. Pair it with an external keyboard and mouse, and suddenly your $1000 laptop has the ergonomics of a $5000 desktop setup.',
+          'Laptops force you to look down, creating neck strain that compounds daily. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Laptop Stand Aluminum - $44.99" href="/product/laptop-stand-aluminum">Laptop Stand Aluminum</a> raises your screen to proper eye level while improving airflow for cooling. The adjustable design accommodates different heights and preferences. Pair it with an external keyboard and mouse, and suddenly your $1000 laptop has the ergonomics of a $5000 desktop setup.',
       },
       {
         type: 'heading',
@@ -1384,7 +1070,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Understanding how sound technology can enhance your mental state and productivity.',
     author: 'Dr. Lisa Hammond',
     authorBio: 'Neuroscientist specializing in auditory processing',
-    authorImage: '/author-lisa.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'January 31, 2024',
     readTime: '7 min read',
     category: 'Wellness',
@@ -1410,18 +1096,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Active noise cancellation uses microphones to detect ambient sound and generates inverse waves that cancel it. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 90,
-        inline: true,
-        content: 'Noise Cancelling Headphones',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'with 30-hour battery life create an acoustic sanctuary anywhere. Studies show that reducing ambient noise improves cognitive performance by up to 25%. The memory foam cushions block passive noise while ANC handles the rest.',
+          'Active noise cancellation uses microphones to detect ambient sound and generates inverse waves that cancel it. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Noise Cancelling Headphones - $249.99" href="/product/noise-cancelling-headphones">Noise Cancelling Headphones</a> with 30-hour battery life create an acoustic sanctuary anywhere. Studies show that reducing ambient noise improves cognitive performance by up to 25%. The memory foam cushions block passive noise while ANC handles the rest.',
       },
       {
         type: 'heading',
@@ -1461,7 +1136,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Modern wearables offer deep health metrics that empower informed lifestyle decisions.',
     author: 'Marcus Williams',
     authorBio: 'Exercise physiologist and wearable technology researcher',
-    authorImage: '/author-marcus-w.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990219/market_and_story/product-manager.png',
     publishedAt: 'January 28, 2024',
     readTime: '8 min read',
     category: 'Wellness',
@@ -1487,18 +1162,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Continuous heart rate monitoring reveals patterns invisible to occasional measurement. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 82,
-        inline: true,
-        content: 'Smart Watch Fitness Tracker',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'tracks resting heart rate trends—an early indicator of overtraining, illness, or improved fitness. Heart rate variability (HRV) shows nervous system balance, helping you know when to push and when to rest. GPS tracking isn\'t just for distance—it maps your effort against terrain.',
+          'Continuous heart rate monitoring reveals patterns invisible to occasional measurement. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Smart Watch Fitness Tracker - $199.99" href="/product/smart-watch-fitness-tracker">Smart Watch Fitness Tracker</a> tracks resting heart rate trends—an early indicator of overtraining, illness, or improved fitness. Heart rate variability (HRV) shows nervous system balance, helping you know when to push and when to rest. GPS tracking isn\'t just for distance—it maps your effort against terrain.',
       },
       {
         type: 'heading',
@@ -1534,7 +1198,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Discover the accessories that work with everything while adding personal style.',
     author: 'Victoria Sterling',
     authorBio: 'Fashion consultant and personal stylist',
-    authorImage: '/author-victoria.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'January 25, 2024',
     readTime: '6 min read',
     category: 'Fashion',
@@ -1560,18 +1224,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'A quality leather wallet ages beautifully—developing patina that tells the story of use. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 151,
-        inline: true,
-        content: 'Leather Wallet',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'with RFID protection combines security and style. Slim enough for front-pocket carry, organized enough to find what you need. The daily ritual of pocket, keys, wallet becomes more pleasant when each item is well-made.',
+          'A quality leather wallet ages beautifully—developing patina that tells the story of use. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Leather Wallet Bifold - $34.99" href="/product/leather-wallet-bifold">Leather Wallet Bifold</a> with RFID protection combines security and style. Slim enough for front-pocket carry, organized enough to find what you need. The daily ritual of pocket, keys, wallet becomes more pleasant when each item is well-made.',
       },
       {
         type: 'heading',
@@ -1611,7 +1264,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'How technology can facilitate rather than hinder your meditation and mindfulness journey.',
     author: 'Yuki Tanaka',
     authorBio: 'Mindfulness teacher and technology integration specialist',
-    authorImage: '/author-yuki.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'January 22, 2024',
     readTime: '7 min read',
     category: 'Wellness',
@@ -1633,18 +1286,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Quality earbuds deliver guided meditations with clarity and without distraction. Noise cancellation creates acoustic privacy. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 81,
-        inline: true,
-        content: 'Wireless Earbuds',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'let you practice anywhere—on public transit, in shared spaces, during travel. The barrier to practice drops when location becomes irrelevant.',
+          'Quality earbuds deliver guided meditations with clarity and without distraction. Noise cancellation creates acoustic privacy. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Wireless Earbuds Pro - $129.99" href="/product/wireless-earbuds-pro">Wireless Earbuds Pro</a> let you practice anywhere—on public transit, in shared spaces, during travel. The barrier to practice drops when location becomes irrelevant.',
       },
       {
         type: 'heading',
@@ -1684,7 +1326,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Optimize your daily commute with technology and accessories designed for mobility.',
     author: 'James Chen',
     authorBio: 'Urban mobility consultant and tech reviewer',
-    authorImage: '/author-james-c.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/ceo.png',
     publishedAt: 'January 19, 2024',
     readTime: '8 min read',
     category: 'Technology',
@@ -1710,18 +1352,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'A dedicated laptop compartment protects your machine. A water-resistant backpack protects everything. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 156,
-        inline: true,
-        content: 'Laptop Backpack',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'with USB charging port lets you top up devices without opening the bag. Multiple compartments mean no more digging for keys or cards. Organization isn\'t just neat—it\'s stress reduction.',
+          'A dedicated laptop compartment protects your machine. A water-resistant backpack protects everything. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Backpack Laptop 15.6 inch - $44.99" href="/product/backpack-laptop-15-6-inch">Backpack Laptop 15.6 inch</a> with USB charging port lets you top up devices without opening the bag. Multiple compartments mean no more digging for keys or cards. Organization isn\'t just neat—it\'s stress reduction.',
       },
       {
         type: 'heading',
@@ -1767,7 +1398,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Exploring the resurgence of physical media and the cognitive benefits of analog experiences.',
     author: 'Julian Cross',
     authorBio: 'Cultural critic and media historian',
-    authorImage: '/author-julian.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/ceo.png',
     publishedAt: 'January 16, 2024',
     readTime: '7 min read',
     category: 'Culture',
@@ -1803,18 +1434,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'A physical book remains yours permanently. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 19,
-        inline: true,
-        content: 'Coffee Table Book Collection',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'represents curated photography and art that doesn\'t require power, internet, or subscription. The heft of quality paper, the experience of flipping pages—these tactile elements engage the brain differently than scrolling. Research from Norway\'s Stavanger University found that readers of physical books demonstrated better comprehension and recall than those reading the same content on screens.',
+          'A physical book remains yours permanently. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Coffee Table Book Collection - $79.99" href="/product/coffee-table-book-collection">Coffee Table Book Collection</a> represents curated photography and art that doesn\'t require power, internet, or subscription. The heft of quality paper, the experience of flipping pages—these tactile elements engage the brain differently than scrolling. Research from Norway\'s Stavanger University found that readers of physical books demonstrated better comprehension and recall than those reading the same content on screens.',
       },
       {
         type: 'heading',
@@ -1874,7 +1494,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Master the layered approach to residential lighting for spaces that adapt to every need.',
     author: 'Diane Martinez',
     authorBio: 'Lighting designer and interior architect',
-    authorImage: '/author-diane.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'January 13, 2024',
     readTime: '8 min read',
     category: 'Design',
@@ -1915,18 +1535,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'The',
-      },
-      {
-        type: 'product-mention',
-        productId: 8,
-        inline: true,
-        content: 'Smart LED Table Lamp',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'demonstrates adjustable task lighting. Three brightness levels plus adjustable color temperature let you match the light to the activity. Cool white (5000K) for focused work. Neutral white (4000K) for general tasks. Warm white (3000K) for evening relaxation. The built-in USB port adds function without cluttering surfaces—charge your phone while you read.',
+          'The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Smart LED Table Lamp - $45.99" href="/product/smart-led-table-lamp">Smart LED Table Lamp</a> demonstrates adjustable task lighting. Three brightness levels plus adjustable color temperature let you match the light to the activity. Cool white (5000K) for focused work. Neutral white (4000K) for general tasks. Warm white (3000K) for evening relaxation. The built-in USB port adds function without cluttering surfaces—charge your phone while you read.',
       },
       {
         type: 'paragraph',
@@ -1992,7 +1601,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Rediscovering the psychological and social benefits of thoughtful, polished attire.',
     author: 'Theodore Black',
     authorBio: 'Menswear expert and style historian',
-    authorImage: '/author-theodore.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990219/market_and_story/product-manager.png',
     publishedAt: 'January 10, 2024',
     readTime: '7 min read',
     category: 'Fashion',
@@ -2039,12 +1648,6 @@ export const ARTICLES: Article[] = [
         type: 'paragraph',
         content:
           'A well-fitted blazer is transformative. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 47,
-        inline: true,
-        content: 'Tailored Blazer',
       },
       {
         type: 'paragraph',
@@ -2114,7 +1717,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Practical strategies for making your home a true retreat from the demands of constant connectivity.',
     author: 'Dr. Sarah Patel',
     authorBio: 'Clinical psychologist specializing in digital wellness',
-    authorImage: '/author-sarah-p.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'January 7, 2024',
     readTime: '9 min read',
     category: 'Wellness',
@@ -2150,18 +1753,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'The',
-      },
-      {
-        type: 'product-mention',
-        productId: 35,
-        inline: true,
-        content: 'Blackout Curtains',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'block external light pollution, creating true darkness for sleep. Studies show people sleep 20-30 minutes longer in completely dark rooms. But they also provide psychological control—opening them is a ritual that says "day begins now." Closing them signals transition to evening. These physical acts mark psychological boundaries.',
+          'The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Curtain Panels Blackout - $52.99" href="/product/curtain-panels-blackout">Curtain Panels Blackout</a> block external light pollution, creating true darkness for sleep. Studies show people sleep 20-30 minutes longer in completely dark rooms. But they also provide psychological control—opening them is a ritual that says "day begins now." Closing them signals transition to evening. These physical acts mark psychological boundaries.',
       },
       {
         type: 'paragraph',
@@ -2237,7 +1829,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'From streaming to podcasting, the technology that elevates amateur content to professional quality.',
     author: 'Carlos Rivera',
     authorBio: 'Content creator and production consultant',
-    authorImage: '/author-carlos.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/ceo.png',
     publishedAt: 'January 4, 2024',
     readTime: '8 min read',
     category: 'Technology',
@@ -2273,18 +1865,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'The',
-      },
-      {
-        type: 'product-mention',
-        productId: 88,
-        inline: true,
-        content: '4K Webcam',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'provides both: 4K resolution with autofocus that tracks your face as you move, and automatic light correction that adjusts exposure in real-time. The dual microphones with noise reduction eliminate echo and background noise. For video calls, streaming, or recording, it\'s the single biggest upgrade from built-in laptop cameras.',
+          'The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Webcam 4K HD - $89.99" href="/product/webcam-4k-hd">Webcam 4K HD</a> provides both: 4K resolution with autofocus that tracks your face as you move, and automatic light correction that adjusts exposure in real-time. The dual microphones with noise reduction eliminate echo and background noise. For video calls, streaming, or recording, it\'s the single biggest upgrade from built-in laptop cameras.',
       },
       {
         type: 'paragraph',
@@ -2355,7 +1936,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'The principles and practices of slow fashion that benefit both your closet and the planet.',
     author: 'Emma Thompson',
     authorBio: 'Sustainable fashion advocate and ethical brand consultant',
-    authorImage: '/author-emma-t.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'December 28, 2023',
     readTime: '9 min read',
     category: 'Fashion',
@@ -2391,18 +1972,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'The',
-      },
-      {
-        type: 'product-mention',
-        productId: 49,
-        inline: true,
-        content: 'Wool Winter Coat',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'in timeless double-breasted design will be relevant in a decade. Quality wool blend with warm lining—this is a 10+ year piece. At $400 and 100 wears, that\'s $4 per wear. Compare to a $100 coat that looks dated after one season and falls apart after two. At 20 wears, that\'s $5 per wear—and you\'ll need to replace it.',
+          'The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Wool Coat Winter - $189.99" href="/product/wool-coat-winter">Wool Coat Winter</a> in timeless double-breasted design will be relevant in a decade. Quality wool blend with warm lining—this is a 10+ year piece. At $400 and 100 wears, that\'s $4 per wear. Compare to a $100 coat that looks dated after one season and falls apart after two. At 20 wears, that\'s $5 per wear—and you\'ll need to replace it.',
       },
       {
         type: 'paragraph',
@@ -2472,7 +2042,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Organization strategies that make cooking more efficient, creative, and enjoyable.',
     author: 'Chef Marie Dubois',
     authorBio: 'Professional chef and culinary space designer',
-    authorImage: '/author-marie.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'December 25, 2023',
     readTime: '7 min read',
     category: 'Lifestyle',
@@ -2523,18 +2093,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'The',
-      },
-      {
-        type: 'product-mention',
-        productId: 28,
-        inline: true,
-        content: 'Glass Storage Containers',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'bring restaurant organization home. See contents at a glance. Stack efficiently. Move seamlessly from fridge to microwave to oven. The airtight lids keep food fresh longer, reducing waste.',
+          'The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Glass Food Storage Containers - $44.99" href="/product/glass-food-storage-containers">Glass Food Storage Containers</a> bring restaurant organization home. See contents at a glance. Stack efficiently. Move seamlessly from fridge to microwave to oven. The airtight lids keep food fresh longer, reducing waste.',
       },
       {
         type: 'paragraph',
@@ -2615,7 +2174,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Building a mobile setup that works from cafes, coworking spaces, or across continents.',
     author: 'Nina Kowalski',
     authorBio: 'Digital nomad and remote work consultant',
-    authorImage: '/author-nina.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/editorial-director.png',
     publishedAt: 'December 22, 2023',
     readTime: '8 min read',
     category: 'Technology',
@@ -2651,18 +2210,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Tablets provide surprising capability in minimal space. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 91,
-        inline: true,
-        content: '10.5-inch Tablet',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'with keyboard case weighs under 2 pounds but handles 80% of my work: writing, email, presentations, video calls, spreadsheets. The included stylus enables sketching and annotations—invaluable for brainstorming and document review.',
+          'Tablets provide surprising capability in minimal space. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Tablet 10.5 inch - $349.99" href="/product/tablet-105-inch">Tablet 10.5 inch</a> with keyboard case weighs under 2 pounds but handles 80% of my work: writing, email, presentations, video calls, spreadsheets. The included stylus enables sketching and annotations—invaluable for brainstorming and document review.',
       },
       {
         type: 'paragraph',
@@ -2763,7 +2311,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Building a morning routine that energizes rather than depletes, based on behavioral research.',
     author: 'Dr. Michael Chang',
     authorBio: 'Behavioral scientist and habit formation expert',
-    authorImage: '/author-michael-c.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990219/market_and_story/product-manager.png',
     publishedAt: 'December 19, 2023',
     readTime: '9 min read',
     category: 'Wellness',
@@ -2799,18 +2347,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Before coffee, drink water. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 29,
-        inline: true,
-        content: 'Electric Kettle',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'makes hot water instantly available—for tea, lemon water, or warm water alone. Rapid-boil technology means no waiting. The 1.7-liter capacity is enough for multiple cups without refilling.',
+          'Before coffee, drink water. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Electric Kettle Stainless Steel - $39.99" href="/product/electric-kettle-stainless-steel">Electric Kettle Stainless Steel</a> makes hot water instantly available—for tea, lemon water, or warm water alone. Rapid-boil technology means no waiting. The 1.7-liter capacity is enough for multiple cups without refilling.',
       },
       {
         type: 'paragraph',
@@ -2915,7 +2452,7 @@ export const ARTICLES: Article[] = [
     excerpt: 'Professional techniques for creating gallery walls that feel intentional rather than random.',
     author: 'Lucas Montgomery',
     authorBio: 'Gallery curator and residential art consultant',
-    authorImage: '/author-lucas.jpg',
+    authorImage: 'https://res.cloudinary.com/jlml/image/upload/v1765990218/market_and_story/ceo.png',
     publishedAt: 'December 16, 2023',
     readTime: '7 min read',
     category: 'Design',
@@ -2951,18 +2488,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Start on the floor. Arrange frames before hammering nails. The',
-      },
-      {
-        type: 'product-mention',
-        productId: 32,
-        inline: true,
-        content: 'Picture Frame Set',
-      },
-      {
-        type: 'paragraph',
-        content:
-          'includes various sizes—4x6, 5x7, 8x10. Use this variety strategically. Large pieces anchor the composition—they\'re visual weight that grounds the arrangement. Small pieces fill gaps and create rhythm. Mix horizontal and vertical orientations for visual interest.',
+          'Start on the floor. Arrange frames before hammering nails. The <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Picture Frame Set - $48.99" href="/product/picture-frame-set">Picture Frame Set</a> includes various sizes—4x6, 5x7, 8x10. Use this variety strategically. Large pieces anchor the composition—they\'re visual weight that grounds the arrangement. Small pieces fill gaps and create rhythm. Mix horizontal and vertical orientations for visual interest.',
       },
       {
         type: 'paragraph',

@@ -10,6 +10,7 @@ import { Card } from '@/components/ui/card';
 import { seedData } from '@/seed/seed';
 import { ARTICLES } from '@/seed/articles.data';
 import { ArticleContentRenderer } from '@/components/article-content-renderer';
+import ProductImage from '@/components/product-image';
 
 export interface PageProps {
   params: {
@@ -43,7 +44,7 @@ export default async function ArticleDetailPage({ params }: PageProps):Promise<J
                 <div className='flex items-center gap-4'>
                   <div className='w-12 h-12 rounded-full bg-muted overflow-hidden'>
                     <Image
-                      src={article.authorImage || '/placeholder.svg'}
+                      src={article.authorImage}
                       alt={article.author}
                       width={48}
                       height={48}
@@ -78,7 +79,7 @@ export default async function ArticleDetailPage({ params }: PageProps):Promise<J
           {/* Hero Image */}
           <div className='w-full aspect-21/9 bg-muted relative overflow-hidden'>
             <Image
-              src={article.heroImage || '/placeholder.svg'}
+              src={article.heroImage}
               alt={article.title}
               fill
               className='object-cover'
@@ -108,7 +109,7 @@ export default async function ArticleDetailPage({ params }: PageProps):Promise<J
               <div className='flex gap-4'>
                 <div className='w-16 h-16 rounded-full bg-muted overflow-hidden shrink-0'>
                   <Image
-                    src={article.authorImage || '/placeholder.svg'}
+                    src={article.authorImage}
                     alt={article.author}
                     width={64}
                     height={64}
@@ -131,14 +132,8 @@ export default async function ArticleDetailPage({ params }: PageProps):Promise<J
                     <Link key={product.id} href={`/product/${product.slug}`}>
                       <Card className='group overflow-hidden border-border hover:shadow-md transition-all'>
                         <div className='grid grid-cols-2 gap-4 p-4'>
-                          <div className='aspect-square rounded-lg overflow-hidden bg-muted'>
-                            <Image
-                              src={product.images[0] || '/placeholder.svg'}
-                              alt={product.title}
-                              width={200}
-                              height={200}
-                              className='object-cover group-hover:scale-105 transition-transform'
-                            />
+                          <div className='relative aspect-square rounded-lg overflow-hidden bg-muted'>
+                            <ProductImage product={product} className='object-cover group-hover:scale-105 transition-transform' priority={false}/>
                           </div>
                           <div className='flex flex-col justify-center'>
                             <p className='font-medium text-balance'>{product.title}</p>

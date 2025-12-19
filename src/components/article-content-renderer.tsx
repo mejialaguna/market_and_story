@@ -2,7 +2,6 @@
 /* eslint-disable react/no-array-index-key */
 import { type FC, type JSX } from 'react';
 
-import { InlineProductMention } from '@/components/inline-product-mention';
 import { InlineProductCard } from '@/components/inline-product-card';
 import type { ArticleSection } from '@/seed/articles.data';
 
@@ -20,7 +19,7 @@ export const ArticleContentRenderer:FC<ArticleContentRendererProps> = ({ section
             return (
               <HeadingTag 
                 className='font-serif font-bold text-foreground tracking-tight text-balance scroll-mt-20
-                  text-[32px] leading-[1.2] mt-14 mb-5 first:mt-0'
+                  text-[32px] leading-[1.2] mb-5 first:mt-0'
                 key={`heading-${index}`}
               >
                 {section.content}
@@ -47,17 +46,6 @@ export const ArticleContentRenderer:FC<ArticleContentRendererProps> = ({ section
                 {section.content}
               </blockquote>
             );
-
-          case 'product-mention':
-            return section.inline && section.productId ? (
-              <InlineProductMention 
-                key={`mention-${section.productId}-${index}`}
-                productId={section.productId}
-              >
-                {section.content || ''}
-              </InlineProductMention>
-            ) : null;
-
           case 'product-card':
             return section.productId ? (
               <div key={`card-${section.productId}-${index}`} className='my-12'>
