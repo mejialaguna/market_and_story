@@ -1,4 +1,5 @@
-import { seedData, type Product, type ProductCategory } from '@/seed/seed';
+import type { Product, ProductCategory } from '@/lib/content-types';
+import { seedData } from '@/seed/seed';
 
 export interface GetRecommendationsResponse {
   message?: string;

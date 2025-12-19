@@ -12,16 +12,13 @@ import {
 
 import Image from 'next/image';
 
-import type { Product } from '@/seed/seed';
+import { placeholderImage, type Product } from '@/lib/content-types';
 
 export interface ProductImageProps
   extends React.HTMLAttributes<HTMLImageElement> {
   product: Product;
   priority?: boolean;
 }
-
-const placeholderImage =
-  'https://res.cloudinary.com/jlml/image/upload/v1765487827/market_and_story/imageplaceholder.svg';
 
 const ProductImage: FC<ProductImageProps> = ({
   product,

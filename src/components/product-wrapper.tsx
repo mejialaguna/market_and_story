@@ -8,11 +8,12 @@ import { ProductFilters } from './product-filters';
 import { ProductGrid } from './product-grid';
 
 interface ProductWrapperProps {
-  categoryFilter: string;
+  categoryFilter?: string;
+  sortBy?: string;
 }
 
 export const ProductWrapper: FC<ProductWrapperProps> = ({
-  categoryFilter,
+  categoryFilter, sortBy: sortByProduct
 }): JSX.Element => {
   const router = useRouter();
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
@@ -20,25 +21,26 @@ export const ProductWrapper: FC<ProductWrapperProps> = ({
   );
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState<string>('featured');
+  const [sortBy, setSortBy] = useState<string>(sortByProduct || 'featured');
   const hasActiveFilters = useMemo(
     () =>
       selectedCategories.length > 0 ||
       priceRange[0] > 0 ||
       priceRange[1] < 1000 ||
-      selectedFeatures.length > 0,
-    [priceRange, selectedCategories.length, selectedFeatures.length]
+      selectedFeatures.length > 0 || sortByProduct !== undefined,
+    [priceRange, selectedCategories.length, selectedFeatures.length, sortByProduct]
   );
 
   const handleClearAll = useCallback((): void => {
     setSelectedCategories([]);
     setPriceRange([0, 1000]);
     setSelectedFeatures([]);
+    setSortBy('featured');
 
-    if (categoryFilter) {
+    if (categoryFilter || sortByProduct) {
       router.replace('/products');
     }
-  }, [categoryFilter, router]);
+  }, [categoryFilter, router, sortByProduct]);
 
   return (
     <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-8'>

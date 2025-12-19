@@ -5,45 +5,16 @@ import Image from 'next/image';
 import { Star } from 'lucide-react';
 
 import { Card } from '@/components/ui/card';
-
-const mockReviews = [
-  {
-    id: '1',
-    userName: 'Sarah M.',
-    userAvatar: '/author-sarah.jpg',
-    rating: 5,
-    date: '2024-01-15',
-    comment: 'Absolutely love this vase! The craftsmanship is exceptional and it looks even better in person.',
-    verified: true,
-  },
-  {
-    id: '2',
-    userName: 'Marcus T.',
-    userAvatar: '/author-marcus.jpg',
-    rating: 4,
-    date: '2024-01-10',
-    comment: 'Beautiful piece. Slightly smaller than I expected but still very nice quality.',
-    verified: true,
-  },
-  {
-    id: '3',
-    userName: 'Elena R.',
-    userAvatar: '/author-elena.jpg',
-    rating: 5,
-    date: '2024-01-05',
-    comment: 'The glaze finish is stunning. Perfect addition to my living room. Highly recommend!',
-    verified: true,
-  },
-];
+import type { ProducReviews } from '@/lib/content-types';
 
 interface ReviewListProps{
-  slug: string;
+  productReviews: ProducReviews[];
 }
 
-export const ReviewList:FC<ReviewListProps> = ({ slug }): JSX.Element => {
+export const ReviewList:FC<ReviewListProps> = ({ productReviews }): JSX.Element => {
   return (
     <div className='space-y-4'>
-      {mockReviews.map((review) => (
+      {productReviews.map((review) => (
         <Card key={review.id} className='p-6'>
           <div className='flex gap-4'>
             <div className='relative w-12 h-12 rounded-full overflow-hidden bg-muted shrink-0'>

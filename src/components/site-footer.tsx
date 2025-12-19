@@ -32,7 +32,12 @@ export const SiteFooter:FC = (): JSX.Element => {
               </li>
               <li>
                 <Link
-                  href='/products/new'
+                  href={{
+                    pathname: '/products',
+                    query: {
+                      sortBy: 'newest',
+                    },
+                  }}
                   className='text-sm text-muted-foreground hover:text-foreground transition-colors'
                 >
                   New Arrivals
@@ -40,7 +45,7 @@ export const SiteFooter:FC = (): JSX.Element => {
               </li>
               <li>
                 <Link
-                  href='/products/featured'
+                  href='/products'
                   className='text-sm text-muted-foreground hover:text-foreground transition-colors'
                 >
                   Featured
@@ -90,7 +95,7 @@ export const SiteFooter:FC = (): JSX.Element => {
                   About
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href='/contact'
                   className='text-sm text-muted-foreground hover:text-foreground transition-colors'
@@ -105,7 +110,7 @@ export const SiteFooter:FC = (): JSX.Element => {
                 >
                   Careers
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
@@ -122,7 +127,7 @@ export const SiteFooter:FC = (): JSX.Element => {
               Privacy
             </Link>
             <Link
-              href='/terms'
+              href='/'
               className='text-sm text-muted-foreground hover:text-foreground transition-colors'
             >
               Terms
