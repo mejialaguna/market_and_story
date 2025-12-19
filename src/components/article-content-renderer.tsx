@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable react/no-array-index-key */
 import { type FC, type JSX } from 'react';
 
 import { InlineProductMention } from '@/components/inline-product-mention';
@@ -10,43 +12,63 @@ interface ArticleContentRendererProps {
 
 export const ArticleContentRenderer:FC<ArticleContentRendererProps> = ({ sections }):JSX.Element => {
   return (
-    <div
-      className='prose prose-lg dark:prose-invert max-w-none
-      prose-headings:font-serif prose-headings:font-semibold prose-headings:text-balance
-      prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-      prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-      prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6
-      prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-6 prose-blockquote:italic
-      prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-      prose-em:text-foreground'
-    >
-      {sections.map((section) => {
+    <article className='max-w-none'>
+      {sections.map((section, index) => {
         switch (section.type) {
           case 'heading':
             const HeadingTag = `h${section.level}` as keyof JSX.IntrinsicElements;
-            return <HeadingTag className='' key={section.content}>{section.content}</HeadingTag>;
+            return (
+              <HeadingTag 
+                className='font-serif font-bold text-foreground tracking-tight text-balance scroll-mt-20
+                  text-[32px] leading-[1.2] mt-14 mb-5 first:mt-0'
+                key={`heading-${index}`}
+              >
+                {section.content}
+              </HeadingTag>
+            );
 
           case 'paragraph':
-            // eslint-disable-next-line @typescript-eslint/naming-convention
-            return <p key={section.content} dangerouslySetInnerHTML={{ __html: section.content || '' }} />;
+            return (
+              <p 
+                className='text-[18px] leading-[1.75] text-foreground/80 mb-7 font-normal'
+                key={`paragraph-${index}`}
+                dangerouslySetInnerHTML={{ __html: section.content || '' }} 
+              />
+            );
 
           case 'blockquote':
-            return <blockquote key={section.content}>{section.content}</blockquote>;
+            return (
+              <blockquote 
+                className='relative my-12 py-6 px-8 border-l-[5px] border-accent bg-accent/5 rounded-r-md
+                  text-[20px] leading-[1.6] font-serif italic text-foreground/90
+                  before:content-["“"] before:absolute before:text-6xl before:text-accent/30 before:-top-2 before:left-2'
+                key={`blockquote-${index}`}
+              >
+                {section.content}
+              </blockquote>
+            );
 
           case 'product-mention':
             return section.inline && section.productId ? (
-              <InlineProductMention key={section.content} productId={section.productId}>
+              <InlineProductMention 
+                key={`mention-${section.productId}-${index}`}
+                productId={section.productId}
+              >
                 {section.content || ''}
               </InlineProductMention>
             ) : null;
 
           case 'product-card':
-            return section.productId ? <InlineProductCard key={`${section.type}-${section.productId}`} productId={section.productId} /> : null;
+            return section.productId ? (
+              <div key={`card-${section.productId}-${index}`} className='my-12'>
+                <InlineProductCard productId={section.productId} />
+              </div>
+            ) : null;
 
           default:
             return null;
         }
       })}
-    </div>
+    </article>
   );
 };
