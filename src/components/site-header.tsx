@@ -49,10 +49,10 @@ export const SiteHeader: FC = (): JSX.Element => {
                 Stories
               </Link>
               <Link
-                href='/live'
+                href='/product-reels'
                 className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
               >
-                Live
+                Product Reels
               </Link>
               <Link
                 href='/locations'
@@ -140,10 +140,10 @@ export const SiteHeader: FC = (): JSX.Element => {
                 Stories
               </Link>
               <Link
-                href='/live'
+                href='/product-reels'
                 className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
               >
-                Live
+                Product Reels
               </Link>
               <Link
                 href='/locations'

@@ -199,7 +199,7 @@ const Home: FC = (): JSX.Element => {
               </p>
               <div>
                 <Button size='lg' variant='secondary' asChild>
-                  <Link href='/live'>
+                  <Link href='/product-reels'>
                     Watch Now
                     <ArrowRight className='ml-2 h-4 w-4' />
                   </Link>
