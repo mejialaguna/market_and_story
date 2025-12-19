@@ -67,7 +67,7 @@ export const seedData: Product[] = [
       qrCode: 'https://cdn.dummyjson.com/public/qr-code.png',
     },
     images: [
-      'https://images.unsplash.com/photo-1578500494198-246f612d3b3d',
+      'https://res.cloudinary.com/jlml/image/upload/v1766175467/market_and_story/cw89uvzhl7ixngyseltf.webp',
       'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92',
     ],
     thumbnail:
