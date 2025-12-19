@@ -1,11 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import type { FC, JSX } from 'react';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-
 
 import { Search, ShoppingBag, Menu, User, Heart, BookOpen } from 'lucide-react';
 
@@ -20,10 +17,6 @@ import {
 
 
 export const SiteHeader: FC = (): JSX.Element => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const router = useRouter();
-
   return (
     <header className='sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
@@ -112,60 +105,36 @@ export const SiteHeader: FC = (): JSX.Element => {
                 <span className='sr-only'>Shopping bag</span>
               </Link>
             </Button>
-            <Button
-              variant='ghost'
-              size='icon'
-              className='md:hidden'
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <Menu className='h-5 w-5' />
-              <span className='sr-only'>Menu</span>
-            </Button>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant='ghost' size='icon' className='md:hidden'>
+                  <Menu className='h-5 w-5' />
+                  <span className='sr-only'>Menu</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align='end' className='w-56'>
+                <DropdownMenuItem asChild>
+                  <Link href='/products'>Shop</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href='/articles'>Stories</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href='/product-reels'>Live</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href='/locations'>Locations</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild className='sm:hidden'>
+                  <Link href='/search'>Search</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
 
-        {isMenuOpen && (
-          <nav className='md:hidden py-4 border-t border-border'>
-            <div className='flex flex-col gap-4'>
-              <Link
-                href='/products'
-                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
-              >
-                Shop
-              </Link>
-              <Link
-                href='/articles'
-                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
-              >
-                Stories
-              </Link>
-              <Link
-                href='/product-reels'
-                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
-              >
-                Product Reels
-              </Link>
-              <Link
-                href='/locations'
-                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
-              >
-                Locations
-              </Link>
-              <Link
-                href='/search'
-                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
-              >
-                Search
-              </Link>
-              <Link
-                href='/account'
-                className='text-[14px] font-medium text-foreground/80 hover:text-foreground transition-colors'
-              >
-                My Account
-              </Link>
-            </div>
-          </nav>
-        )}
+        
       </div>
     </header>
   );
