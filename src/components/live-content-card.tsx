@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Heart, MessageCircle, Share2, ShoppingBag } from 'lucide-react';
+import { Heart, ShoppingBag } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -59,18 +59,16 @@ export function LiveContentCard({
     <div className='relative w-full h-full'>
       {content.type === 'video' && content.videoUrl && (
         <div className='relative w-full h-full bg-black dimelo-video'>
-          <iframe
-            src={`https://www.youtube.com/embed/${content.videoUrl}?autoplay=${
-          isActive ? 1 : 0
-        }&loop=1&playlist=${
-          content.videoUrl
-        }&controls=0&modestbranding=1&rel=0&fs=0&iv_load_policy=3`}
+          <video
+            src={content.videoUrl}
             className={cn(
-              'absolute inset-0 w-full h-full transition-opacity duration-300',
+              'absolute inset-0 m-auto transition-opacity duration-300',
               showVideo ? 'opacity-100' : 'opacity-0'
             )}
-            allow='autoplay; encrypted-media'
-            allowFullScreen
+            autoPlay
+            loop
+            muted={!isActive}
+            playsInline
           />
           <div className='absolute inset-0 z-20 flex flex-col justify-end p-6 pb-24 text-white'>
             <div className='flex items-start justify-between gap-4'>

@@ -13,7 +13,7 @@ import { LIVE_CONTENT } from '@/seed/live.data.content';
 
 export function LiveContentFeed():JSX.Element {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState<'up' | 'down'>('down');
+  const [_, setDirection] = useState<'up' | 'down'>('down');
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef<number>(0);
   const touchEndY = useRef<number>(0);
@@ -143,9 +143,9 @@ export function LiveContentFeed():JSX.Element {
       </div>
 
       <div className='absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex gap-1.5'>
-        {LIVE_CONTENT.map((_, index) => (
+        {LIVE_CONTENT.map((content, index) => (
           <button
-            key={index}
+            key={content.id}
             onClick={() => {
               if (!isScrolling.current) {
                 isScrolling.current = true;

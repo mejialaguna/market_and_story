@@ -142,7 +142,7 @@ export default async function ProductPage({
                   </li>
                 ))}
                 <li className='capitalize'>brand: {product?.brand}</li>
-                <li className='capitalize'>features: {product?.features}</li>
+                <li className={`capitalize ${!product?.features ? 'hidden' : ''}`}>features: {product?.features}</li>
                 <li className='capitalize'>return policy: {product?.returnPolicy}</li>
               </ul>
             </Card>

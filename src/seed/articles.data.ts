@@ -59,7 +59,7 @@ export const ARTICLES: Article[] = [
       {
         type: 'paragraph',
         content:
-          'Take lighting, for example. A well-designed desk lamp can transform your workspace from merely functional to genuinely inspiring. Our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Modern Ceramic Vase Set - $49.99" href="/product/modern-ceramic-vase-set">Minimalist Desk Lamp</a> embodies this philosophy perfectly—clean lines, adjustable brightness, and a timeless aesthetic that complements any interior. It\'s not just illumination; it\'s a statement about valuing quality over quantity.',
+          'Take lighting, for example. A well-designed desk lamp can transform your workspace from merely functional to genuinely inspiring. Our <a class="text-accent underline decoration-accent/30 hover:decoration-accent transition-colors font-medium" title="Modern Ceramic Vase Set - $49.99" href="/product/minimalist-desk-lamp">Minimalist Desk Lamp</a> embodies this philosophy perfectly—clean lines, adjustable brightness, and a timeless aesthetic that complements any interior. It\'s not just illumination; it\'s a statement about valuing quality over quantity.',
       },
       {
         type: 'paragraph',

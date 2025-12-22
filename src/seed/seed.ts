@@ -11946,4 +11946,79 @@ export const seedData: Product[] = [
     thumbnail:
       'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=200',
   },
+  {
+    id: 184,
+    title: 'Minimalist Desk Lamp',
+    slug: 'minimalist-desk-lamp',
+    description:
+      'Sleek and functional minimalist desk lamp designed for modern workspaces. Features a slim metal body, adjustable arm, and warm LED lighting ideal for reading or focused work.',
+    category: 'Home & Living',
+    price: 39.99,
+    discountPercentage: 10.0,
+    rating: 4.6,
+    stock: 124,
+    tags: ['desk lamp', 'lighting', 'minimalist', 'office'],
+    brand: 'LumaHome',
+    sku: 'HL-LMH-LMP-002',
+    weight: 1.8,
+    dimensions: {
+      width: 15.0,
+      height: 38.0,
+      depth: 18.0,
+    },
+    warrantyInformation: '1 year manufacturer warranty',
+    shippingInformation: 'Ships in 1-3 business days',
+    availabilityStatus: 'In Stock',
+    reviews: [
+      {
+        id: '2-1',
+        productId: 2,
+        productSlug: 'minimalist-desk-lamp',
+        userName: 'Sophia L.',
+        rating: 5,
+        date: '2024-07-02',
+        comment:
+          'Perfect desk lamp for my home office. Bright but not harsh.',
+        verified: true,
+      },
+      {
+        id: '2-2',
+        productId: 2,
+        productSlug: 'minimalist-desk-lamp',
+        userName: 'Daniel R.',
+        rating: 4,
+        date: '2024-09-14',
+        comment:
+          'Great design and quality. I wish the cord was a bit longer.',
+        verified: true,
+      },
+      {
+        id: '2-3',
+        productId: 2,
+        productSlug: 'minimalist-desk-lamp',
+        userName: 'Ava M.',
+        rating: 5,
+        date: '2024-11-01',
+        comment:
+          'Stylish and practical. Matches my desk setup perfectly.',
+        verified: true,
+      },
+    ],
+    returnPolicy: '30 day return policy',
+    minimumOrderQuantity: 1,
+    meta: {
+      createdAt: '2025-01-18T09:45:00.000Z',
+      updatedAt: '2025-01-18T09:45:00.000Z',
+      barcode: '9876543210987',
+      qrCode: 'https://cdn.dummyjson.com/public/qr-code.png',
+    },
+    images: [
+      'https://res.cloudinary.com/jlml/image/upload/v1766427074/market_and_story/minimalist-desk-lamp.webp',
+      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b',
+    ],
+    thumbnail:
+      'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=200',
+    badge: 'Best Seller',
+    features: ['LED Lighting', 'Adjustable Arm', 'Energy Efficient'],
+  }
 ];
