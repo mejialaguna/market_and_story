@@ -76,10 +76,10 @@ export function LiveContentCard({
                 <div className='flex items-center gap-3'>
                   <div className='relative w-10 h-10 rounded-full overflow-hidden border-2 border-white'>
                     <Image
-                      src={content.authorAvatar || '/placeholder.svg'}
+                      src='https://res.cloudinary.com/jlml/image/upload/v1766427780/market_and_story/ai-content-generation.webp'
                       alt={content.author}
                       fill
-                      className='object-cover'
+                      className='object-cover bg-white'
                     />
                   </div>
                   <div>
