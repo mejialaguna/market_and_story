@@ -1,6 +1,7 @@
 import type { FC, JSX } from 'react';
 
 import { ProductWrapper } from '@/components/product-wrapper';
+import { getAllProducts } from '@/lib/dal/products';
 
 export interface PageProps {
   searchParams: {
@@ -11,6 +12,7 @@ export interface PageProps {
 
 const page: FC<PageProps> = async ({searchParams}): Promise<JSX.Element> => {
   const { categoryFilter, sortBy } = await searchParams;
+  const products = await getAllProducts();
 
   return (
     <main className='flex-1 my-auto'>
@@ -25,7 +27,7 @@ const page: FC<PageProps> = async ({searchParams}): Promise<JSX.Element> => {
         </div>
       </div>
 
-      <ProductWrapper categoryFilter={categoryFilter} sortBy={sortBy}/>
+      <ProductWrapper categoryFilter={categoryFilter} sortBy={sortBy} products={products}/>
     </main>
   );
 };

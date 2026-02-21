@@ -3,15 +3,17 @@ import { Suspense } from 'react';
 
 import { notFound } from 'next/navigation';
 
-import { Star, Heart, ShoppingBag } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 import ProductImage from '@/components/product-image';
-import { Button } from '@/components/ui/button';
+import { AddToCartButton } from '@/components/add-to-cart-button';
+import { AddToWishlistButton } from '@/components/add-to-wishlist-button';
 import { Card } from '@/components/ui/card';
 import { ProductRecommendations, RecommendationsSkeleton } from '@/components/product-recommendations';
 import { ReviewList } from '@/components/review-list';
-import { ReviewForm } from '@/components/review-form.';
-import { getProductBySlug } from '@/helpers/getProductBySlug';
+import { ReviewForm } from '@/components/review-form';
+import { getProductBySlug } from '@/lib/dal/products';
+import { RelatedStories } from '@/components/related-stories';
 import { resolveOpenGraphImage } from '@/lib/utils';
 
 import type { Metadata, ResolvingMetadata } from 'next';
@@ -50,7 +52,7 @@ export default async function ProductPage({
   params,
 }: PageProps): Promise<JSX.Element> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
 
   if (!product) {
     notFound();
@@ -117,13 +119,14 @@ export default async function ProductPage({
             </p>
 
             <div className='flex gap-3'>
-              <Button size='lg' className='flex-1'>
-                <ShoppingBag className='h-5 w-5 mr-2' />
-                Add to Bag
-              </Button>
-              <Button size='lg' variant='outline'>
-                <Heart className='h-5 w-5' />
-              </Button>
+              <AddToCartButton
+                productId={product.id}
+                title={product.title}
+                slug={product.slug}
+                price={product.price}
+                thumbnail={Array.isArray(product.thumbnail) ? product.thumbnail[0] : product.thumbnail}
+              />
+              <AddToWishlistButton productId={product.id} />
             </div>
 
             {product.stock && (
@@ -164,10 +167,15 @@ export default async function ProductPage({
           </div>
         </div>
 
+        {/* Related Stories */}
+        <Suspense fallback={null}>
+          <RelatedStories productSlug={slug} />
+        </Suspense>
+
         {/* AI-Powered Recommendations */}
         <div className='mt-20'>
           <Suspense fallback={<RecommendationsSkeleton />}>
-            <ProductRecommendations category={product.category} />
+            <ProductRecommendations category={product.category} currentSlug={slug} />
           </Suspense>
         </div>
       </div>

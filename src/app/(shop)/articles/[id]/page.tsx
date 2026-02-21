@@ -2,14 +2,16 @@ import type { JSX } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
-import { Clock, Bookmark, Share2, MessageCircle, Heart } from 'lucide-react';
+import { Clock, Share2, MessageCircle, Heart } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { seedData } from '@/seed/seed';
-import { ARTICLES } from '@/seed/articles.data';
+import { getArticleById, getRelatedProducts } from '@/lib/dal/articles';
 import { ArticleContentRenderer } from '@/components/article-content-renderer';
+import { ArticleSummary } from '@/components/article-summary';
+import { AddToReadingListButton } from '@/components/add-to-reading-list-button';
 import ProductImage from '@/components/product-image';
 
 export interface PageProps {
@@ -20,8 +22,13 @@ export interface PageProps {
 
 export default async function ArticleDetailPage({ params }: PageProps):Promise<JSX.Element> {
   const { id } = await params;
-  const article = ARTICLES.find((a) => a.id === id) || ARTICLES[0];
-  const relatedProducts = seedData.filter((p) => article.relatedProductSlugs.includes(p.slug));
+  const article = await getArticleById(id);
+
+  if (!article) {
+    notFound();
+  }
+
+  const relatedProducts = await getRelatedProducts(id);
 
   return (
     <div className='flex min-h-screen flex-col'>
@@ -65,9 +72,7 @@ export default async function ArticleDetailPage({ params }: PageProps):Promise<J
                 </div>
 
                 <div className='flex items-center gap-2'>
-                  <Button variant='ghost' size='icon'>
-                    <Bookmark className='h-5 w-5' />
-                  </Button>
+                  <AddToReadingListButton articleId={id} />
                   <Button variant='ghost' size='icon'>
                     <Share2 className='h-5 w-5' />
                   </Button>
@@ -89,6 +94,7 @@ export default async function ArticleDetailPage({ params }: PageProps):Promise<J
 
           {/* Article Content */}
           <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-3xl'>
+            <ArticleSummary articleId={id} />
             <ArticleContentRenderer sections={article.contentSections} />
 
             {/* Tags */}

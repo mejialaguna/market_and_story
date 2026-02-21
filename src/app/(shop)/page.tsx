@@ -1,4 +1,4 @@
-import { type FC, type JSX } from 'react';
+import { type JSX } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,16 +7,16 @@ import { ArrowRight } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { seedData } from '@/seed/seed';
 import { ProductCard } from '@/components/product-card';
-import { getSingleProductsByCategory } from '@/helpers/getSingleProductsByCategory';
+import { getSingleProductsByCategory, getFeaturedProducts } from '@/lib/dal/products';
 import type { Product } from '@/lib/content-types';
 
-const showCaseProducts = getSingleProductsByCategory(seedData, 4);
+export default async function Home(): Promise<JSX.Element> {
+  const [showCaseProducts, showCaseFeatureProducts] = await Promise.all([
+    getSingleProductsByCategory(4),
+    getFeaturedProducts(3),
+  ]);
 
-const showCaseFeatureProducts = getSingleProductsByCategory(seedData.filter((product) => product?.features?.length), 3);
-
-const Home: FC = (): JSX.Element => {
   return (
     <main className='flex-1'>
       {/* Hero Section */}
@@ -219,6 +219,4 @@ const Home: FC = (): JSX.Element => {
       </section>
     </main>
   );
-};
-
-export default Home;
+}
