@@ -1,5 +1,3 @@
-'use client';
-
 import { type FC, type JSX } from 'react';
 
 import Image from 'next/image';
@@ -8,7 +6,6 @@ import Link from 'next/link';
 import { Bookmark, Clock } from 'lucide-react';
 
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import type { Article } from '@/lib/content-types';
 
 interface ArticleGridProps {
@@ -74,13 +71,7 @@ export const ArticleGrid: FC<ArticleGridProps> = ({
                           </div>
                         </div>
                       </div>
-                      <Button
-                        variant='ghost'
-                        size='icon'
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        <Bookmark className='h-4 w-4' />
-                      </Button>
+                      <Bookmark className='h-4 w-4 text-muted-foreground' />
                     </div>
                   </div>
                 </div>
