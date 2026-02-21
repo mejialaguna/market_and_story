@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 import { Star } from 'lucide-react';
 
-import type { ProductCategory } from '@/seed/seed';
-import { getRecommendations } from '@/helpers/getSingleProductsByCategory';
+import type { ProductCategory } from '@/lib/content-types';
+import { getRecommendations } from '@/lib/dal/products';
 
 import { Card } from './ui/card';
 import ProductImage from './product-image';
@@ -13,6 +13,7 @@ import { LikesComponent } from './likes-component';
 
 interface ProductRecommendationsProps {
   category: ProductCategory;
+  currentSlug?: string;
 }
 
 export const RecommendationsSkeleton:FC = (): JSX.Element => (
@@ -35,8 +36,9 @@ export const RecommendationsSkeleton:FC = (): JSX.Element => (
 
 export const ProductRecommendations: FC<ProductRecommendationsProps> = async ({
   category,
+  currentSlug,
 }): Promise<JSX.Element> => {
-  const { ok, products } = await getRecommendations(category, 4);
+  const { ok, products } = await getRecommendations(category, 4, currentSlug);
 
   if (!ok || !products || products.length === 0) {
     return <div />;

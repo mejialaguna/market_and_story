@@ -4,19 +4,21 @@ import type { FC, JSX } from 'react';
 
 import Link from 'next/link';
 
-import { Search, ShoppingBag, Menu, User, Heart, BookOpen } from 'lucide-react';
+import { Search, ShoppingBag, Menu, Heart, BookOpen } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
+import { useCart } from '@/components/providers/cart-provider';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
 
 export const SiteHeader: FC = (): JSX.Element => {
+  const { getCartCount } = useCart();
+  const cartCount = getCartCount();
   return (
     <header className='sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
@@ -69,39 +71,28 @@ export const SiteHeader: FC = (): JSX.Element => {
               </Link>
             </Button>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant='ghost' size='icon'>
-                  <User className='h-5 w-5' />
-                  <span className='sr-only'>User menu</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align='end' className='w-48'>
-                <DropdownMenuItem asChild>
-                  <Link href='/account'>My Account</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href='/wishlist' className='flex items-center'>
-                    <Heart className='h-4 w-4 mr-2' />
-                    Wishlist
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href='/reading-list' className='flex items-center'>
-                    <BookOpen className='h-4 w-4 mr-2' />
-                    Reading List
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link href='/auth/login'>Sign In</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Button variant='ghost' size='icon' asChild>
+              <Link href='/wishlist'>
+                <Heart className='h-5 w-5' />
+                <span className='sr-only'>Wishlist</span>
+              </Link>
+            </Button>
 
             <Button variant='ghost' size='icon' asChild>
+              <Link href='/reading-list'>
+                <BookOpen className='h-5 w-5' />
+                <span className='sr-only'>Reading List</span>
+              </Link>
+            </Button>
+
+            <Button variant='ghost' size='icon' className='relative' asChild>
               <Link href='/cart'>
                 <ShoppingBag className='h-5 w-5' />
+                {cartCount > 0 && (
+                  <span className='absolute -top-1 -right-1 h-4 w-4 rounded-full bg-accent text-accent-foreground text-[10px] font-medium flex items-center justify-center'>
+                    {cartCount > 9 ? '9+' : cartCount}
+                  </span>
+                )}
                 <span className='sr-only'>Shopping bag</span>
               </Link>
             </Button>
@@ -121,7 +112,7 @@ export const SiteHeader: FC = (): JSX.Element => {
                   <Link href='/articles'>Stories</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href='/product-reels'>Live</Link>
+                  <Link href='/product-reels'>Product Reels</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href='/locations'>Locations</Link>
@@ -134,7 +125,7 @@ export const SiteHeader: FC = (): JSX.Element => {
           </div>
         </div>
 
-        
+
       </div>
     </header>
   );

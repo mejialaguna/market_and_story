@@ -2,7 +2,7 @@ import type { FC, JSX } from 'react';
 
 import { Heart } from 'lucide-react';
 
-import type { Product } from '@/seed/seed';
+import type { Product } from '@/lib/content-types';
 
 import { Badge } from './ui/badge';
 import { Card } from './ui/card';

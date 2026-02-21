@@ -4,16 +4,19 @@ import type { FC, JSX } from 'react';
 
 import { useRouter } from 'next/navigation';
 
+import type { Product } from '@/lib/content-types';
+
 import { ProductFilters } from './product-filters';
 import { ProductGrid } from './product-grid';
 
 interface ProductWrapperProps {
   categoryFilter?: string;
   sortBy?: string;
+  products: Product[];
 }
 
 export const ProductWrapper: FC<ProductWrapperProps> = ({
-  categoryFilter, sortBy: sortByProduct
+  categoryFilter, sortBy: sortByProduct, products
 }): JSX.Element => {
   const router = useRouter();
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
@@ -57,6 +60,7 @@ export const ProductWrapper: FC<ProductWrapperProps> = ({
         </aside>
         <div className='lg:col-span-3'>
           <ProductGrid
+            products={products}
             selectedCategories={selectedCategories}
             priceRange={priceRange}
             selectedFeatures={selectedFeatures}

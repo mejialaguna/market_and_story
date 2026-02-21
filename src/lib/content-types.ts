@@ -70,5 +70,45 @@ export const reviewSchema = z.object({
     .min(50, 'Review must be at least 50 characters')
 });
 
+export interface ArticleSection {
+  type: 'paragraph' | 'heading' | 'blockquote' | 'product-card';
+  content?: string;
+  level?: 2 | 3;
+  productId?: number;
+  inline?: boolean;
+}
+
+export interface Article {
+  id: string;
+  title: string;
+  subtitle: string;
+  excerpt: string;
+  author: string;
+  authorBio: string;
+  authorImage: string;
+  publishedAt: string;
+  readTime: string;
+  category: string;
+  heroImage: string;
+  tags: string[];
+  featured: boolean;
+  contentSections: ArticleSection[];
+  relatedProductSlugs: string[];
+}
+
+export interface LiveContentItem {
+  id: number;
+  type: 'video' | 'image';
+  videoUrl: string;
+  title: string;
+  author: string;
+  authorAvatar: string;
+  likes: number;
+  comments: number;
+  tags: string[];
+  productLink: string;
+  description: string;
+}
+
 export const placeholderImage =
 'https://res.cloudinary.com/jlml/image/upload/v1765487827/market_and_story/imageplaceholder.svg';

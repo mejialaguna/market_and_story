@@ -9,7 +9,7 @@ import { Bookmark, Clock } from 'lucide-react';
 
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import type { Article } from '@/seed/articles.data';
+import type { Article } from '@/lib/content-types';
 
 interface ArticleGridProps {
   articles: Article[];

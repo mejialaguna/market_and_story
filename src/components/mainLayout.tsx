@@ -2,6 +2,7 @@ import type { FC, JSX, ReactNode } from 'react';
 
 import { SiteHeader } from './site-header';
 import { SiteFooter } from './site-footer';
+import { ChatAssistant } from './chat-assistant';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -15,6 +16,7 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }): JSX.Element => {
       {children}
 
       <SiteFooter />
+      <ChatAssistant />
     </div>
   );
 };

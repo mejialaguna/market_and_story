@@ -9,9 +9,13 @@ import { ArrowLeft } from 'lucide-react';
 
 import { LiveContentCard } from '@/components/live-content-card';
 import { Button } from '@/components/ui/button';
-import { LIVE_CONTENT } from '@/seed/live.data.content';
+import type { LiveContentItem } from '@/lib/content-types';
 
-export function LiveContentFeed():JSX.Element {
+interface LiveContentFeedProps {
+  liveContent: LiveContentItem[];
+}
+
+export function LiveContentFeed({ liveContent }: LiveContentFeedProps):JSX.Element {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [_, setDirection] = useState<'up' | 'down'>('down');
   const containerRef = useRef<HTMLDivElement>(null);
@@ -20,7 +24,7 @@ export function LiveContentFeed():JSX.Element {
   const isScrolling = useRef(false);
 
   const handleNext = useCallback(():void => {
-    if (currentIndex < LIVE_CONTENT.length - 1 && !isScrolling.current) {
+    if (currentIndex < liveContent.length - 1 && !isScrolling.current) {
       isScrolling.current = true;
       setDirection('down');
       setCurrentIndex((prev) => prev + 1);
@@ -28,7 +32,7 @@ export function LiveContentFeed():JSX.Element {
         isScrolling.current = false;
       }, 500);
     }
-  }, [currentIndex]);
+  }, [currentIndex, liveContent.length]);
 
   const handlePrevious = useCallback(():void => {
     if (currentIndex > 0 && !isScrolling.current) {
@@ -118,12 +122,12 @@ export function LiveContentFeed():JSX.Element {
 
       <div className='absolute top-4 right-4 z-50 flex items-center gap-2'>
         <div className='bg-black/50 backdrop-blur-sm rounded-full px-3 py-1 text-white text-sm font-medium'>
-          {currentIndex + 1} / {LIVE_CONTENT.length}
+          {currentIndex + 1} / {liveContent.length}
         </div>
       </div>
 
       <div className='relative w-full h-full'>
-        {LIVE_CONTENT.map((content, index) => (
+        {liveContent.map((content, index) => (
           <div
             key={content.id}
             className='absolute inset-0 transition-transform duration-500 ease-out'
@@ -143,7 +147,7 @@ export function LiveContentFeed():JSX.Element {
       </div>
 
       <div className='absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex gap-1.5'>
-        {LIVE_CONTENT.map((content, index) => (
+        {liveContent.map((content, index) => (
           <button
             key={content.id}
             onClick={() => {

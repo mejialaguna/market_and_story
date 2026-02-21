@@ -3,12 +3,13 @@ import type { FC, JSX } from 'react';
 
 import Link from 'next/link';
 
-import { seedData } from '@/seed/seed';
+import type { Product } from '@/lib/content-types';
 
 import { Button } from './ui/button';
 import { ProductCard } from './product-card';
 
 interface ProductGridProps {
+  products: Product[];
   selectedCategories: string[];
   priceRange: [number, number];
   selectedFeatures: string[];
@@ -19,6 +20,7 @@ interface ProductGridProps {
 }
 
 export const ProductGrid: FC<ProductGridProps> = ({
+  products,
   selectedCategories,
   priceRange,
   selectedFeatures,
@@ -28,7 +30,7 @@ export const ProductGrid: FC<ProductGridProps> = ({
   hasActiveFilters,
 }): JSX.Element => {
   const filteredProducts = useMemo(() => {
-    let filtered = seedData;
+    let filtered = products;
 
     // Filter by features
     if (selectedFeatures.length > 0) {
@@ -73,7 +75,7 @@ export const ProductGrid: FC<ProductGridProps> = ({
     }
 
     return sorted;
-  }, [selectedCategories, priceRange, selectedFeatures, sortBy]);
+  }, [products, selectedCategories, priceRange, selectedFeatures, sortBy]);
 
   return (
     <div className='space-y-6'>
@@ -104,7 +106,7 @@ export const ProductGrid: FC<ProductGridProps> = ({
           <option value='newest'>Newest</option>
         </select>
         </div>
-        
+
       </div>
 
       {filteredProducts.length === 0 ? (

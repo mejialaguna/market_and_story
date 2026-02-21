@@ -1,5 +1,7 @@
 import { Playfair_Display, Inter } from 'next/font/google';
 
+import { CartProvider } from '@/components/providers/cart-provider';
+
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -34,7 +36,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} antialiased`}
       >
-        {children}
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );

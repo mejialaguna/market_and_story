@@ -48,7 +48,8 @@ async function main() {
       product.weight, product.dimensions.width, product.dimensions.height, product.dimensions.depth,
       product.warrantyInformation, product.shippingInformation, product.availabilityStatus,
       product.returnPolicy, product.minimumOrderQuantity, product.meta.createdAt, product.meta.updatedAt,
-      product.meta.barcode, product.meta.qrCode, product.images, thumbnail, product.badge ?? null, product.features ?? [],
+      product.meta.barcode, product.meta.qrCode, product.images, thumbnail,
+      product.badge ?? null, product.features ?? [],
       [] as string[]
     );
 

@@ -159,6 +159,7 @@ export async function getRecommendations(
 
     return { ok: true, products: products.map(toProduct) };
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     return {
       message: `Error fetching recommendations for ${category}`,

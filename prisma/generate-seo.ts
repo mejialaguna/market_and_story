@@ -1,7 +1,8 @@
+/* eslint-disable no-console */
 import { prisma } from '../src/lib/db';
 import { generateProductSEO, generateArticleSEO, generateArticleSummary } from '../src/lib/ai/seo';
 
-async function generateSEO() {
+async function generateSEO(): Promise<void> {
   console.log('Generating SEO metadata...\n');
 
   // Generate product SEO
@@ -81,4 +82,4 @@ async function generateSEO() {
   await prisma.$disconnect();
 }
 
-generateSEO();
+void generateSEO();

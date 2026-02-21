@@ -17,7 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import type { Article } from '@/seed/articles.data';
+import type { Article } from '@/lib/content-types';
 
 const categories = [
   { id: 'lifestyle', label: 'Lifestyle', count: 45 },

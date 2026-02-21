@@ -6,7 +6,7 @@ import { ShoppingBag } from 'lucide-react';
 
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { seedData } from '@/seed/seed';
+import { getProductById } from '@/lib/dal/products';
 
 import ProductImage from './product-image';
 
@@ -14,10 +14,10 @@ interface InlineProductCardProps {
   productId: number;
 }
 
-export const InlineProductCard: FC<InlineProductCardProps> = ({
+export const InlineProductCard: FC<InlineProductCardProps> = async ({
   productId,
-}: InlineProductCardProps): JSX.Element => {
-  const product = seedData.find((p) => p.id === productId);
+}: InlineProductCardProps): Promise<JSX.Element> => {
+  const product = await getProductById(productId);
 
   if (!product) {
     return <></>;
