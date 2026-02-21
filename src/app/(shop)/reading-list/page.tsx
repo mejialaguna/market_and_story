@@ -1,0 +1,62 @@
+import Link from 'next/link';
+
+import { BookOpen } from 'lucide-react';
+
+import { prisma } from '@/lib/db';
+import { Card } from '@/components/ui/card';
+import { ReadingListItemCard } from '@/components/reading-list-item-card';
+
+export default async function ReadingListPage(): Promise<React.JSX.Element> {
+  const items = await prisma.readingListItem.findMany({
+    include: {
+      article: {
+        select: {
+          id: true,
+          title: true,
+          excerpt: true,
+          category: true,
+          heroImage: true,
+          author: true,
+          readTime: true,
+          publishedAt: true,
+        },
+      },
+    },
+    orderBy: { createdAt: 'desc' },
+  });
+
+  return (
+    <main className='flex-1'>
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12'>
+        <div className='max-w-4xl mx-auto'>
+          <div className='flex items-center gap-3 mb-8'>
+            <BookOpen className='h-6 w-6 text-accent' />
+            <h1 className='font-serif text-3xl font-semibold'>Your Reading List</h1>
+          </div>
+
+          {items.length === 0 ? (
+            <Card className='p-12 text-center'>
+              <BookOpen className='h-12 w-12 mx-auto mb-4 text-muted-foreground/30' />
+              <h2 className='font-serif text-xl font-semibold mb-2'>No saved articles</h2>
+              <p className='text-muted-foreground text-sm mb-6'>
+                Save articles to read later and they&apos;ll appear here.
+              </p>
+              <Link
+                href='/articles'
+                className='inline-flex items-center justify-center rounded-md bg-accent text-accent-foreground px-6 py-2 text-sm font-medium hover:bg-accent/90 transition-colors'
+              >
+                Browse Stories
+              </Link>
+            </Card>
+          ) : (
+            <div className='grid gap-4'>
+              {items.map((item) => (
+                <ReadingListItemCard key={item.id} article={item.article} />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </main>
+  );
+}
